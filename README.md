@@ -28,6 +28,12 @@ A few people have been asking for the yaml config so here goes, along with some 
  
 ![Screenshot 2022-05-10 at 11 52 04](https://user-images.githubusercontent.com/57415184/167612587-61df8346-e615-4607-9937-bc21f004f486.png)
 
+**Note:** You can control pretty much every single aspect of a Denon Receiver via its IP protocol and the Denon HA integration. 
+
+The list of commands you can publish are [here](https://www.denon.com/-/media/files/documentmaster/denonna/avr-x3700hfy21avr_denon_protocol_v02_04062020.xlsx) on Denon's official website.
+
+
+
 
 /
 
