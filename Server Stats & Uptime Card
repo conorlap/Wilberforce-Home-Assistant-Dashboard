@@ -1,0 +1,121 @@
+type: vertical-stack
+cards:
+  - type: entities
+    entities:
+      - entity: sensor.docker_containers_running
+      - entity: sensor.docker_containers_total
+      - entity: sensor.last_boot
+      - entity: switch.docker_transmission
+    title: MyNAS
+    icon: phu:nas
+    show_header_toggle: false
+    state_color: true
+    footer:
+      image: null
+      entity: null
+      type: custom:bar-card
+      entities:
+        - entity: sensor.processor_temperature
+        - entity: sensor.processor_use_percent
+        - entity: sensor.memory_use_percent
+        - entity: sensor.disk_use_percent_files
+        - entity: sensor.disk_use_percent_ssd01
+        - entity: sensor.home_assistant_v2_db_size
+          severity:
+            - from: '0'
+              to: '1000'
+              color: green
+              icon: mdi:check
+            - from: '1000'
+              to: '5000'
+              color: orange
+              icon: mdi:alert
+            - from: '5000'
+              to: '20000'
+              icon: mdi:alert-decagram
+              color: red
+          max: '3000'
+          decimal: '0'
+        - entity: sensor.frigate_storage_space
+          icon: mdi:cctv
+          color: green
+        - entity: sensor.disk_use_percent_timemachine
+        - entity: sensor.speedtest_download
+          max: '75'
+          target: '72'
+          animation:
+            state: 'on'
+            speed: '1'
+          severity:
+            - from: '0'
+              to: '40'
+              color: Red
+            - from: '41'
+              to: '59'
+              color: Orange
+            - from: '60'
+              to: '90'
+              color: Green
+        - entity: sensor.speedtest_upload
+          severity:
+            - from: '0'
+              to: '10'
+              color: Red
+            - from: '10.1'
+              to: '15'
+              color: Orange
+            - from: '15.1'
+              to: '80'
+              color: Green
+          max: '30'
+      title: null
+      direction: right
+      height: 28
+      positions:
+        icon: inside
+        indicator: 'off'
+        name: inside
+        minmax: 'off'
+        value: inside
+      severity:
+        - from: '80'
+          to: '100'
+          color: Red
+        - from: '70'
+          to: '79'
+          color: Orange
+        - from: '0'
+          to: '69'
+          color: Green
+  - type: custom:uptime-card
+    entity: binary_sensor.mynas
+    icon: hass:server
+    name: Uptime
+    hours_to_show: 72
+    status_adaptive_color: true
+    average_text: '% uptime'
+    alias:
+      ok: Online
+      ko: Offline
+    color:
+      icon: white
+      ok: '#45C669'
+      ko: '#C6B145'
+      half: '#C66445'
+      none: '#C9C9C9'
+      title: white
+    show:
+      header: true
+      title: true
+      icon: true
+      footer: true
+      status: true
+      timeline: true
+      average: true
+    tooltip:
+      animation: true
+    icon_adaptive_color: true
+    bar:
+      height: 36
+      round: 1
+      amount: 55
