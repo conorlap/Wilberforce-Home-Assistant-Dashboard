@@ -5,6 +5,8 @@ A few people have been asking for the yaml config so here goes, along with some 
 
 **Theme**: [hass-kibibit-theme](https://github.com/Kibibit/hass-kibibit-theme)
 
+**Screenshots:** [Here](https://github.com/conorlap/Wilberforce-Home-Assistant-Dashboard#screenshots)
+
 /
 
 /
