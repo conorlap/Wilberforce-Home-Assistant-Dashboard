@@ -1,7 +1,13 @@
 # Wilberforce Home Assistant Dashboard
 
 
-A few people have been asking for the yaml config so here goes, along with some other brief explanations:
+A few people have been asking for the yaml config so here goes, along with some other brief explanations.
+
+**Theme**: [hass-kibibit-theme](https://github.com/Kibibit/hass-kibibit-theme)
+
+/
+
+/
 
 
 ## 1. The ['Devices' desktop card](https://github.com/conorlap/Wilberforce-Home-Assistant-Dashboard/blob/main/Devices%20tab)  
