@@ -1,0 +1,386 @@
+type: vertical-stack
+cards:
+  - enableColumns: true
+    home: false
+    haptic: light
+    rows:
+      - columns:
+          - column: 0
+            entities:
+              - entities:
+                  - entity: light.living_room
+                    name: LivingRm
+                    hideState: true
+                    icon: mdi:sofa
+                    double_tap_action:
+                      action: more-info
+                      entity: light.living_room
+                    popupExtend:
+                      actions:
+                        - color: '#ffffff'
+                          name: White
+                          service: scene.turn_on
+                          service_data:
+                            entity_id: scene.living_room_1_white
+                        - color: '#f1ebdf'
+                          name: Dimmed
+                          service: scene.turn_on
+                          service_data:
+                            entity_id: scene.living_room_2_white_dimmed
+                        - color: '#f290f4'
+                          name: Pink
+                          service: scene.turn_on
+                          service_data:
+                            entity_id: scene.living_room_3_pink
+                        - color: '#fcb92e'
+                          name: Orange
+                          service: scene.turn_on
+                          service_data:
+                            entity_id: scene.living_room_4_orange
+                        - color: '#20f32f '
+                          name: Ireland
+                          service: scene.turn_on
+                          service_data:
+                            entity_id: scene.living_room_5_ireland
+                    state: false
+                  - entity: light.bedroom
+                    name: Bedroom
+                    icon: mdi:bed
+                    hideState: true
+                    double_tap_action:
+                      action: more-info
+                      entity: light.bedroom
+                  - entity: switch.fairy_litez
+                    name: FairyLitez
+                    icon: mdi:string-lights
+                    hideState: true
+                    double_tap_action:
+                      action: more-info
+                      entity: switch.fairy_litez
+                  - entity: light.office
+                    name: Office
+                    icon: phu:rooms-office
+                    hideState: true
+                    double_tap_action:
+                      action: more-info
+                      entity: light.office
+                    popupExtend:
+                      actions:
+                        - color: '#fbe9d2'
+                          name: White
+                          service: scene.turn_on
+                          service_data:
+                            entity_id: scene.office_nomie_bright
+                        - color: '#FFFFFF'
+                          name: Brightest
+                          service: scene.turn_on
+                          service_data:
+                            entity_id: scene.office_blue_bright_light
+                        - color: '#f290f4'
+                          name: Pink
+                          service: scene.turn_on
+                          service_data:
+                            entity_id: scene.office_pank
+                        - color: '#fcb92e'
+                          name: Orangey
+                          service: scene.turn_on
+                          service_data:
+                            entity_id: scene.office_orangey2
+                  - entity: light.spare_bedroom
+                    name: Spare Bed
+                    icon: mdi:bed-empty
+                    double_tap_action:
+                      action: more-info
+                      entity: light.spare_bedroom
+                    hideState: true
+                  - entity: light.hall
+                    icon: hue:room-hallway
+                    name: Hall
+                    hideState: true
+                    double_tap_action:
+                      action: more-info
+                      entity: light.hall
+                  - card: custom:mini-graph-card
+                    cardOptions:
+                      entities:
+                        - sensor.hall_sensor_temperature
+                      name: HALL
+                    noPadding: true
+                    wider: true
+                popup:
+                  type: custom:light-popup-card
+                  displayType: slider
+                  sliderColoredByLight: true
+                  fullscreen: true
+                  hideIcon: true
+                  hideState: true
+                  brightnessWidth: 100px
+                  settings:
+                    openButton: Settings
+                    closeButton: Close
+                  settingsPosition: bottom
+                  settingsCard:
+                    type: custom:light-entity-card
+                    cardOptions:
+                      entity: this
+                      shorten_cards: false
+                      hide_header: false
+                      persist_features: true
+                      show_slider_percent: true
+                      full_width_sliders: false
+                      brightness: false
+                      color_temp: true
+                      white_value: true
+                      color_wheel: true
+                      color_picker: true
+                      effects_list: false
+                      child_card: false
+                      style: |
+                        ha-card {
+                          width: 400px;
+                        }
+                title: All Rooms
+            tileOnRow: 5
+    statePositionTop: false
+    title: null
+    titleColor: '#00000'
+    type: custom:homekit-card
+    style: |
+      :host {
+      --tile-width: 70px;
+      --tile-height: 70px;
+      --tile-icon-size: 30px;
+      --tile-value-text-color: rgba(5, 0, 0, 1);
+      --tile-background: rgba(180, 180, 180, 1);
+      }
+    useBrightness: true
+    useTemperature: true
+    doubleTapFallback: hold
+    doubleTapDisabledWhenNoActionSet: true
+    tileHoldAnimation: true
+    useRGB: true
+    masonry: false
+  - enableColumns: true
+    home: false
+    rows:
+      - columns:
+          - column: 0
+            entities:
+              - entities:
+                  - entity: light.living_room_floor_lamp
+                    icon: mdi:floor-lamp-torchiere-variant
+                    name: Floor Lamp
+                    hideState: true
+                    double_tap_action:
+                      action: more-info
+                      entity: light.living_room_floor_lamp
+                  - entity: light.living_room_table_lamp
+                    icon: mdi:lamp
+                    name: Table Lamp
+                    hideState: true
+                    double_tap_action:
+                      action: more-info
+                      entity: light.living_room_table_lamp
+                  - entity: light.tv_strip
+                    icon: hue:lightstrip-tv
+                    name: TV Strip
+                    hideState: true
+                    double_tap_action:
+                      action: more-info
+                      entity: light.tv_strip
+                  - entity: light.fire
+                    icon: mdi:fire
+                    name: Fire
+                    double_tap_action:
+                      action: more-info
+                      entity: light.fire
+                  - entity: switch.nintendo_switch
+                    name: Switch
+                    icon: mdi:nintendo-switch
+                    noPadding: false
+                    wider: false
+                    double_tap_action:
+                      action: more-info
+                      entity: switch.nintendo_switch
+                  - entity: switch.xbox
+                    icon: mdi:microsoft-xbox
+                    name: Xbox
+                    noPadding: false
+                    wider: false
+                    double_tap_action:
+                      action: more-info
+                      entity: switch.xbox
+                  - entity: switch.plex_shield
+                    icon: mdi:plex
+                    name: Plex
+                    noPadding: false
+                    wider: false
+                    double_tap_action:
+                      action: more-info
+                      entity: switch.plex_shield
+                  - entity: switch.nvidiashield
+                    icon: phu:nvidia-shield
+                    name: Shield
+                    noPadding: false
+                    wider: false
+                    double_tap_action:
+                      action: more-info
+                      entity: switch.nvidiashield
+                popup:
+                  type: custom:light-popup-card
+                  displayType: slider
+                  sliderColoredByLight: true
+                  fullscreen: true
+                  hideIcon: true
+                  hideState: true
+                  brightnessWidth: 100px
+                  settings:
+                    openButton: Settings
+                    closeButton: Close
+                  settingsPosition: bottom
+                  settingsCard:
+                    type: custom:light-entity-card
+                    cardOptions:
+                      entity: this
+                      shorten_cards: false
+                      hide_header: false
+                      persist_features: true
+                      show_slider_percent: true
+                      full_width_sliders: false
+                      brightness: false
+                      color_temp: true
+                      white_value: true
+                      color_wheel: true
+                      color_picker: true
+                      effects_list: false
+                      child_card: false
+                      style: |
+                        ha-card {
+                          width: 400px;
+                        }
+                title: Living Room
+            tileOnRow: 5
+    statePositionTop: false
+    title: null
+    titleColor: '#00000'
+    type: custom:homekit-card
+    style: |
+      :host {
+      --tile-width: 70px;
+      --tile-height: 70px;
+      --tile-icon-size: 30px;
+      --tile-value-text-color: rgba(5, 0, 0, 1);
+      --tile-background: rgba(180, 180, 180, 1);
+      }
+    useBrightness: true
+    useTemperature: true
+    doubleTapFallback: hold
+    doubleTapDisabledWhenNoActionSet: true
+    tileHoldAnimation: true
+    useRGB: true
+    masonry: false
+  - enableColumns: true
+    home: false
+    rows:
+      - columns:
+          - column: 0
+            entities:
+              - entities:
+                  - entity: light.office_main
+                    name: Main
+                    icon: hue:ceiling-explore
+                    hideState: true
+                    double_tap_action:
+                      action: more-info
+                      entity: light.office_main
+                  - entity: light.office_desk_lamp
+                    icon: mdi:desk-lamp
+                    name: Desk Lamp
+                    hideState: true
+                    double_tap_action:
+                      action: more-info
+                      entity: light.office_desk_lamp
+                  - entity: light.office_strip
+                    icon: mdi:led-strip-variant
+                    name: Strip
+                    hideState: true
+                    double_tap_action:
+                      action: more-info
+                      entity: light.office_strip
+                  - entity: light.printer
+                    icon: mdi:printer
+                    name: Printer
+                    double_tap_action:
+                      action: more-info
+                      entity: light.printer
+                  - entity: switch.living_room_camera
+                    name: Living Room Camera
+                    offIcon: mdi:webcam-off
+                    icon: mdi:webcam
+                    hideState: true
+                    wider: true
+                    double_tap_action:
+                      action: more-info
+                      entity: switch.living_room_camera
+                  - entity: switch.hoffice_camerall_camera
+                    name: Office Camera
+                    offIcon: mdi:webcam-off
+                    icon: mdi:webcam
+                    hideState: true
+                    wider: true
+                    double_tap_action:
+                      action: more-info
+                      entity: switch.hoffice_camerall_camera
+                popup:
+                  type: custom:light-popup-card
+                  displayType: slider
+                  sliderColoredByLight: true
+                  fullscreen: true
+                  hideIcon: true
+                  hideState: true
+                  brightnessWidth: 100px
+                  settings:
+                    openButton: Settings
+                    closeButton: Close
+                  settingsPosition: bottom
+                  settingsCard:
+                    type: custom:light-entity-card
+                    cardOptions:
+                      entity: this
+                      shorten_cards: false
+                      hide_header: false
+                      persist_features: true
+                      show_slider_percent: true
+                      full_width_sliders: false
+                      brightness: false
+                      color_temp: true
+                      white_value: true
+                      color_wheel: true
+                      color_picker: true
+                      effects_list: false
+                      child_card: false
+                      style: |
+                        ha-card {
+                          width: 400px;
+                        }
+                title: Office
+            tileOnRow: 5
+    statePositionTop: false
+    title: null
+    titleColor: '#00000'
+    type: custom:homekit-card
+    style: |
+      :host {
+      --tile-width: 70px;
+      --tile-height: 70px;
+      --tile-icon-size: 30px;
+      --tile-value-text-color: rgba(5, 0, 0, 1);
+      --tile-background: rgba(180, 180, 180, 1);
+      }
+    useBrightness: true
+    useTemperature: true
+    doubleTapFallback: hold
+    doubleTapDisabledWhenNoActionSet: true
+    tileHoldAnimation: true
+    useRGB: true
+    masonry: false
