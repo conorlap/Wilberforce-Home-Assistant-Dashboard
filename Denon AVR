@@ -1,0 +1,148 @@
+
+
+To add some extra controls for the Denon AVR, I utilized two services built in to the Denon integration; 'denonavr.set_dynamic_eq' to control Dynamic EQ and 'denonavr.get_command' to send the subwoofer volume level.
+
+
+====================================================================
+Scripts configuration:
+====================================================================
+
+#Script to turn Dynamic EQ ON:
+
+alias: Denon AVR - Dynamic EQ ON
+sequence:
+  - service: denonavr.set_dynamic_eq
+    data:
+      dynamic_eq: true
+    target:
+      device_id: YOUR_DEVICE_ID_GOES_HERE
+mode: single
+icon: mdi:surround-sound-5-1
+
+
+#Script to turn Dynamic EQ OFF:
+
+alias: Denon AVR - Dynamic EQ OFF
+sequence:
+  - service: denonavr.set_dynamic_eq
+    data:
+      dynamic_eq: false
+    target:
+      device_id: YOUR_DEVICE_ID_GOES_HERE
+mode: single
+icon: mdi:surround-sound-5-1
+
+
+
+
+
+====================================================================
+Add these two to your config.yaml file:
+====================================================================
+
+#Template Switch to create the 'Dynamic EQ' button for my Dashboard.
+switch:
+  - platform: template
+    switches:
+      denondynamiceq:
+        value_template: "{{is_state_attr('media_player.denon_avr', 'dynamic_eq', true)}}"
+        turn_on:
+          service: script.turn_on
+          target:
+            entity_id: script.denon_avr_dynamic_eq_off
+        turn_off:
+          service: script.turn_on
+          target:
+            entity_id: script.denon_avr_dynamic_eq_off_2
+        icon_template: >-
+          {% if is_state_attr('media_player.denon_avr', 'dynamic_eq', true) %}
+            mdi:toggle-switch-outline
+          {% else %}
+            mdi:toggle-switch-off-outline
+          {% endif %}
+
+# Input Number helper, to allow me to control the subwoofer level on my Denon AVR:
+input_number:
+ subwoofer_level:
+   name: Subwoofer Level
+   icon: mdi:cube-outline
+   initial: -2
+   max: 12
+   min: -12
+   step: 0.5
+
+
+
+
+
+
+====================================================================
+automations.yaml configuration:
+====================================================================
+
+
+# Automation that sends the Subwoofer volume level:
+
+alias: Denon Subwoofer Level
+description: ''
+trigger:
+  - platform: state
+    entity_id: input_number.subwoofer_level
+condition: []
+action:
+  - service: denonavr.get_command
+    data:
+      command: >-
+        /goform/formiPhoneAppDirect.xml?PSSWL {{ (
+        states("input_number.subwoofer_level") | float *10 + 500 ) | int }}
+    target:
+      device_id: YOUR_DEVICE_ID_GOES_HERE
+mode: single
+
+
+
+
+
+
+
+#Automation to reset the settings to your desired defaults every time the receiver switches on, otherwise it will retain the last set settings. 
+
+alias: Set Denon Subwoofer to -2.0db & dynamic EQ to true every time it switches on
+description: ''
+trigger:
+  - platform: device
+    device_id: YOUR_DEVICE_ID_GOES_HERE
+    domain: media_player
+    entity_id: media_player.denon_avr
+    type: turned_on
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 0
+condition: []
+action:
+  - service: script.denon_avr_dynamic_eq_off
+    data: {}
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 10
+      milliseconds: 0
+  - service: input_number.set_value
+    data:
+      value: -2
+    target:
+      entity_id: input_number.subwoofer_level
+  - service: denonavr.get_command
+    data:
+      command: /goform/formiPhoneAppDirect.xml?PSSWL 48
+    target:
+      device_id: YOUR_DEVICE_ID_GOES_HERE
+mode: single
+
+
+
+
+
+
+
