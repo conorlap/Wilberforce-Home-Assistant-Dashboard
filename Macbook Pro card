@@ -1,0 +1,72 @@
+type: vertical-stack
+cards:
+  - type: conditional
+    conditions:
+      - entity: sensor.macbook_pro_cpu_used
+        state_not: unavailable
+    card:
+      type: entities
+      entities:
+        - entity: sensor.macbook_pro_battery
+        - type: custom:slider-entity-row
+          entity: number.macbook_pro_volume
+          min: 0
+          max: 100
+        - entity: switch.macbook_pro_mute
+        - type: button
+          name: Macbook Pro Sleep
+          icon: mdi:power-sleep
+          tap_action:
+            action: call-service
+            service: script.macbook_pro_sleep
+          action_name: Sleep
+      title: Macbook Pro
+      icon: mdi:apple
+      show_header_toggle: false
+      state_color: false
+      footer:
+        type: custom:bar-card
+        entities:
+          - entity: sensor.macbook_pro_cpu_used
+          - entity: sensor.macbook_pro_ram_used_percent
+          - entity: sensor.macbook_pro_system_volumes_data_used_percent
+            severity:
+              - from: '0'
+                to: '50'
+                color: Green
+              - from: '51'
+                to: '75'
+                color: Orange
+              - from: '76'
+                to: '100'
+                color: Red
+          - entity: sensor.macbook_pro_volumes_media_used_percent
+            severity:
+              - from: '0'
+                to: '50'
+                color: Green
+              - from: '51'
+                to: '75'
+                color: Orange
+              - from: '76'
+                to: '100'
+                color: Red
+        title: null
+        direction: right
+        height: 28
+        positions:
+          icon: inside
+          indicator: 'off'
+          name: inside
+          minmax: 'off'
+          value: inside
+        severity:
+          - from: '80'
+            to: '100'
+            color: Red
+          - from: '70'
+            to: '79'
+            color: Orange
+          - from: '0'
+            to: '69'
+            color: Green
