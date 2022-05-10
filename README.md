@@ -12,10 +12,10 @@ A few people have been asking for the yaml config so here goes, along with some 
 
 ## 1. The ['Devices' desktop card](https://github.com/conorlap/Wilberforce-Home-Assistant-Dashboard/blob/main/Devices%20tab)  
 
-Note: The mobile 'Devices' card is the same config but with some bits taken out as I don't need that info on mobile view.
+**Note:** The mobile 'Devices' card is the same config but with some bits taken out as I don't need that info on mobile view.
 
+![Screenshot 2022-05-10 at 12 08 50](https://user-images.githubusercontent.com/57415184/167615391-84246a91-1961-4329-91c4-713185a6b73e.png)
 
-![Screenshot 2022-05-10 at 11 44 56](https://user-images.githubusercontent.com/57415184/167611423-8540e47c-0d03-48f4-ad1e-e976743ffab8.png)
 
 
  **A:** [How I control my Macbook Pro volume/mute](https://github.com/bessarabov/mac2mqtt) 
