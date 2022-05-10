@@ -1,0 +1,318 @@
+type: vertical-stack
+cards:
+  - entities:
+      - type: custom:stack-in-card
+        mode: vertical
+        cards:
+          - type: custom:stack-in-card
+            mode: horizontal
+            cards:
+              - type: custom:mushroom-person-card
+                entity: person.xxx
+                use_entity_picture: true
+                layout: horizontal
+              - type: custom:mushroom-person-card
+                entity: person.xxxx
+                use_entity_picture: true
+                layout: horizontal
+          - type: custom:stack-in-card
+            mode: horizontal
+            cards:
+              - type: custom:mushroom-entity-card
+                entity: sensor.xxsgalaxys20_wifi_connection
+                use_entity_picture: true
+                layout: horizontal
+                icon_color: green
+              - type: custom:mushroom-entity-card
+                entity: sensor.xxx_phone_wifi_connection
+                use_entity_picture: true
+                layout: horizontal
+                icon_color: green
+          - type: custom:stack-in-card
+            mode: horizontal
+            cards:
+              - type: custom:mushroom-entity-card
+                entity: sensor.xxsgalaxys20_battery_level
+                use_entity_picture: true
+                layout: horizontal
+                icon_color: green
+                name: xxx's S20+
+              - type: custom:mushroom-entity-card
+                entity: sensor.xxx_phone_battery_level
+                use_entity_picture: true
+                layout: horizontal
+                name: xxx's S20+
+                icon_color: green
+      - type: custom:mushroom-title-card
+        title: null
+      - type: custom:stack-in-card
+        mode: horizontal
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: binary_sensor.front_door_sensor_contact
+            use_entity_picture: true
+            layout: horizontal
+            icon_color: red
+          - type: custom:mushroom-entity-card
+            entity: binary_sensor.washing_machine_vibration_sensor_vibration
+            use_entity_picture: true
+            layout: horizontal
+            name: Washing Machine
+            icon_color: green
+      - type: custom:stack-in-card
+        mode: horizontal
+        cards:
+          - type: custom:mushroom-template-card
+            primary: >-
+              {% set black_bin = (as_timestamp(now())|timestamp_custom ('%U') |
+              int % 2) == 0 %}
+
+              {% if (black_bin == True ) %}    
+                It's Black bin week
+              {% else %}       
+                It's Brown bin week
+              {% endif %}
+            icon: mdi:trash-can
+            layout: horizontal
+            icon_color: >
+
+              {% set black_bin = (as_timestamp(now())|timestamp_custom ('%U') |
+              int % 2) == 0 %}
+
+              {% if (black_bin == True ) %}    
+
+
+              {% else %}       
+
+              brown
+
+              {% endif %}
+      - type: custom:stack-in-card
+        mode: horizontal
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: sensor.huawei_watch_0310_battery_level
+            use_entity_picture: true
+            layout: horizontal
+            icon_color: green
+            name: xx's Watch
+          - type: custom:mushroom-entity-card
+            entity: sensor.xxs_macbook_pro_internal_battery_level
+            use_entity_picture: true
+            layout: horizontal
+            name: xx's Macbook Pro
+            icon_color: green
+      - type: custom:stack-in-card
+        mode: vertical
+        cards:
+          - type: custom:text-divider-row
+            text: xx's Macbook Pro
+            align: centre
+          - type: custom:stack-in-card
+            mode: horizontal
+            cards:
+              - type: custom:slider-entity-row
+                entity: number.macbook_pro_volume
+                full_row: true
+                grow: null
+              - type: button
+                entity: switch.macbook_pro_mute
+                icon_height: 22px
+                show_name: false
+      - type: custom:mushroom-title-card
+        title: null
+      - type: custom:mini-media-player
+        entity: media_player.living_room_echo_dot
+        group: false
+        info: scroll
+        source: icon
+        artwork: material
+        progress: true
+        runtime: true
+        replace_mute: play_pause
+        hide:
+          volume: false
+          source: true
+          controls: true
+          power: true
+          info: false
+        volume_stateless: false
+        toggle_power: false
+      - type: custom:mini-media-player
+        entity: media_player.bedroom_echo_dot
+        group: false
+        info: short
+        source: icon
+        artwork: material
+        progress: false
+        runtime: false
+        replace_mute: play_pause
+        hide:
+          volume: false
+          source: true
+          controls: true
+          power: true
+          info: false
+        volume_stateless: false
+        toggle_power: false
+      - type: custom:mini-media-player
+        entity: media_player.office_echo_dot
+        group: false
+        info: short
+        source: icon
+        artwork: material
+        progress: false
+        runtime: false
+        replace_mute: play_pause
+        hide:
+          volume: false
+          source: true
+          controls: true
+          power: true
+          info: false
+        volume_stateless: false
+        toggle_power: false
+      - type: custom:mini-media-player
+        entity: media_player.living_room_tv_2
+        group: false
+        info: short
+        source: icon
+        progress: false
+        artwork: material
+        runtime: false
+        hide:
+          volume: false
+          source: false
+          controls: false
+          power: false
+          power_state: false
+          info: false
+          icon_state: false
+        volume_stateless: true
+        toggle_power: false
+        shortcuts:
+          buttons:
+            - icon: mdi:netflix
+              id: Netflix
+              type: source
+            - icon: mdi:microsoft-xbox
+              id: '1581265772928'
+              type: script
+            - icon: phu:amazon-logo
+              id: Amazon Prime Video
+              type: source
+            - icon: mdi:nintendo-switch
+              id: '1613035089823'
+              type: script
+            - icon: mdi:plex
+              id: '1579992709710'
+              name: PLEX
+              type: script
+            - icon: mdi:television-classic
+              id: Live TV
+              name: LIVE TV
+              type: source
+          columns: 4
+          hide_when_off: true
+      - type: custom:stack-in-card
+        mode: vertical
+        cards:
+          - type: custom:mini-media-player
+            entity: media_player.denon_avr
+            group: false
+            info: short
+            source: icon
+            artwork: material
+            progress: false
+            runtime: false
+            hide:
+              volume: false
+              source: false
+              controls: false
+              power: false
+              info: false
+              sound_mode: true
+              power_state: false
+              volume_level: false
+              icon_state: false
+            volume_stateless: false
+            toggle_power: false
+          - type: conditional
+            conditions:
+              - entity: media_player.denon_avr
+                state: 'on'
+            card:
+              type: entities
+              entities:
+                - entity: switch.denondynamiceq
+                  name: Dynamic EQ
+                - entity: input_number.subwoofer_level
+      - type: custom:mini-media-player
+        entity: media_player.nvidia_shield
+        group: false
+        info: short
+        source: icon
+        artwork: material
+        progress: false
+        runtime: false
+        hide:
+          volume: true
+          source: false
+          controls: false
+          power: false
+          info: false
+          power_state: false
+          icon_state: false
+        volume_stateless: false
+        toggle_power: false
+      - type: custom:mini-media-player
+        entity: media_player.plex_shield
+        group: false
+        info: scroll
+        artwork: full-cover
+        source: icon
+        progress: false
+        runtime: false
+        hide:
+          volume: true
+          source: false
+          controls: false
+          power: true
+          state_label: true
+          info: false
+          icon_state: false
+          power_state: false
+        volume_stateless: false
+        toggle_power: false
+        idle_view:
+          when_idle: true
+          when_standby: true
+      - type: custom:stack-in-card
+        mode: vertical
+        cards:
+          - type: conditional
+            conditions:
+              - entity: media_player.xboxone
+                state: 'on'
+            card:
+              type: custom:mini-media-player
+              entity: media_player.xboxone
+              group: false
+              info: short
+              artwork: material
+              source: icon
+              toggle_power: true
+              hide:
+                volume: true
+                source: false
+                controls: false
+                power: false
+                info: false
+                power_state: false
+                icon_state: false
+                state_label: false
+    show_header_toggle: false
+    title: Devices
+    icon: mdi:devices
+    type: entities
+    state_color: true
