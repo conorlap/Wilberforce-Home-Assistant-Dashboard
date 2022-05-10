@@ -1,0 +1,37 @@
+switch:
+  - platform: template
+    switches:
+      nvidiashield:
+        value_template: "{{ is_state('media_player.nvidia_shield', 'idle') or is_state('media_player.nvidia_shield', 'paused') or is_state('media_player.nvidia_shield', 'playing') and is_state_attr('media_player.living_room_tv_2', 'source', 'Home Theatre')}}"
+        turn_on:
+          service: script.turn_on
+          target:
+            entity_id: script.1587548231616
+        turn_off:
+          service: media_player.turn_off
+          target:
+            entity_id: media_player.nvidia_shield
+        icon_template: >-
+          {% if is_state_attr('media_player.denon_avr', 'source', 'SHIELD') %}
+            phu:nvidia-shield
+          {% else %}
+            phu:nvidia-shield
+          {% endif %}
+  - platform: template
+    switches:
+      plex_shield:
+        value_template: "{{ is_state_attr('media_player.nvidia_shield', 'source', 'Plex') and is_state_attr('media_player.living_room_tv_2', 'source', 'Home Theatre') }}"
+        turn_on:
+          service: script.turn_on
+          target:
+            entity_id: script.1579992709710
+        turn_off:
+          service: script.turn_on
+          target:
+            entity_id: script.1587548231616
+        icon_template: >-
+          {% if is_state_attr('media_player.denon_avr', 'source', 'SHIELD') %}
+            mdi:plex
+          {% else %}
+            mdi:plex
+          {% endif %}
