@@ -146,7 +146,9 @@ switch:
 
 **A:** [How I control my Macbook Pro volume/mute](https://github.com/bessarabov/mac2mqtt)
 
-**B:** [How I pull my Macbook Pro stats](https://www.home-assistant.io/integrations/glances/) & then install and configure glances on your Mac! Note that this only works when my Macbook is on my local network.
+**B:** [How I pull my Macbook Pro stats](https://www.home-assistant.io/integrations/glances/) and then once that is done,  install and configure glances on your Mac! 
+
+Note that this only works when my Macbook is on my local network.
 
 
 
@@ -180,13 +182,13 @@ switch:
 
 
 
-**A:** How I pull my local server stats: https://www.home-assistant.io/integrations/systemmonitor/
+**A:** [What I use to pull my local server stats](https://www.home-assistant.io/integrations/systemmonitor/)
 
-**B:** [How I pull my remote offsite backup server stats](https://www.home-assistant.io/integrations/glances/) (You must open ports on router at remote site for this to work, **be careful!)**
+**B:** [What I use to pull my remote offsite backup server stats](https://www.home-assistant.io/integrations/glances/) (You must open ports on router at remote site for this to work, **be careful!)**
 
 **C:** [Uptime integration](https://www.home-assistant.io/integrations/uptime/)
 
-**D:** [SMART integration](https://community.home-assistant.io/t/monitor-your-hdd-smart-status/194132), this is quite awkward to setup!
+**D:** [SMART integration](https://community.home-assistant.io/t/monitor-your-hdd-smart-status/194132)-  **Note**: this is quite awkward to setup!
 
 ![Screenshot 2022-05-10 at 11 49 48](https://user-images.githubusercontent.com/57415184/167612206-f1d6b9c4-a6ab-4303-b3fb-92f10a3190db.png)
 
