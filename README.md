@@ -26,6 +26,9 @@ Note: The mobile 'Devices' card is the same config but with some bits taken out 
 
 /
 
+/
+
+/
 
 
 
@@ -49,11 +52,14 @@ Note: The mobile 'Devices' card is the same config but with some bits taken out 
 
 
 
+
+/
+
 /
 
 /
 
-
+/
 
 
 
@@ -83,10 +89,14 @@ Note: The mobile 'Devices' card is the same config but with some bits taken out 
 
 
 
+
+/
+
 /
 
 /
 
+/
 
 
 
@@ -114,10 +124,14 @@ Note: The mobile 'Devices' card is the same config but with some bits taken out 
 
 
 
+
+/
+
 /
 
 /
 
+/
 
 
 
@@ -138,8 +152,9 @@ Note: The mobile 'Devices' card is the same config but with some bits taken out 
 
 /
 
+/
 
-
+/
 
 
 
