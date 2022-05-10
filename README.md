@@ -8,17 +8,30 @@ A few people have been asking for the yaml config so here goes, along with some 
 
 Note: The mobile 'Devices' card is the same config but with some bits taken out as I don't need that info on mobile view.
 
-**Required custom cards:**
-- [Stack In Card](https://github.com/custom-cards/stack-in-card)   
-- [Mushroom Cards](https://github.com/piitaya/lovelace-mushroom)   
-- [Text Divider Row](https://github.com/iantrich/text-divider-row)   
-- [Lovelace Slider Entity Row](https://github.com/thomasloven/lovelace-slider-entity-row)   
-- [Mini Media Player](https://github.com/kalkih/mini-media-player)   
+
+![Screenshot 2022-05-10 at 11 44 56](https://user-images.githubusercontent.com/57415184/167611423-8540e47c-0d03-48f4-ad1e-e976743ffab8.png)
+
 
  **A:** [How I control my Macbook Pro volume/mute](https://github.com/bessarabov/mac2mqtt) 
  
+ ![Screenshot 2022-05-10 at 11 52 57](https://user-images.githubusercontent.com/57415184/167612725-e09e2902-6d01-4148-821e-b35e40d48672.png)
+
+
+ 
  **B:** [How I added the Denon AVR 'Dynamic EQ' and subwoofer level controls](https://github.com/conorlap/Wilberforce-Home-Assistant-Dashboard/blob/main/Denon%20AVR)
+ 
+![Screenshot 2022-05-10 at 11 52 04](https://user-images.githubusercontent.com/57415184/167612587-61df8346-e615-4607-9937-bc21f004f486.png)
 
+
+/
+
+
+  **Required custom cards:**
+  - [Stack In Card](https://github.com/custom-cards/stack-in-card)   
+  - [Mushroom Cards](https://github.com/piitaya/lovelace-mushroom)   
+  - [Text Divider Row](https://github.com/iantrich/text-divider-row)   
+  - [Lovelace Slider Entity Row](https://github.com/thomasloven/lovelace-slider-entity-row)   
+  - [Mini Media Player](https://github.com/kalkih/mini-media-player)   
 
 
 
@@ -27,13 +40,67 @@ Note: The mobile 'Devices' card is the same config but with some bits taken out 
 /
 
 /
-
-/
-
 
 
 
 ## 2. The ['All Rooms' (Lights and Scripts buttons) desktop card](https://github.com/conorlap/Wilberforce-Home-Assistant-Dashboard/blob/main/Lights%20and%20Scripts%20tab)  
+
+![Screenshot 2022-05-10 at 11 44 15](https://user-images.githubusercontent.com/57415184/167611308-3dce6069-6b20-40d8-a9dc-6572c34ed657.png)
+
+
+
+
+ **Note:** The buttons for 'Switch', 'Xbox', 'Plex' and 'Shield' all simply just call scripts that I've created that turn on my TV, surround sound and switch my TV & Receiver to the appropiate HDMI and turns the corresponding device on if supported. (The Nintendo Switch won't turn on this way as we cannot control it via HA). 
+ 
+ The Script buttons are actually Template Switches, so it allows HA to report the 'on state', for example the Shield switch appears on when I'm on my Nvidia Shield. [Example extract from my config.yaml for this:](https://github.com/conorlap/Wilberforce-Home-Assistant-Dashboard/blob/main/Template%20Switch%20config.yaml)
+
+
+```
+switch:
+  - platform: template
+    switches:
+      nvidiashield:
+        value_template: "{{ is_state('media_player.nvidia_shield', 'idle') or is_state('media_player.nvidia_shield', 'paused') or is_state('media_player.nvidia_shield', 'playing') and is_state_attr('media_player.living_room_tv_2', 'source', 'Home Theatre')}}"
+        turn_on:
+          service: script.turn_on
+          target:
+            entity_id: script.1587548231616
+        turn_off:
+          service: media_player.turn_off
+          target:
+            entity_id: media_player.nvidia_shield
+        icon_template: >-
+          {% if is_state_attr('media_player.denon_avr', 'source', 'SHIELD') %}
+            phu:nvidia-shield
+          {% else %}
+            phu:nvidia-shield
+          {% endif %}
+  - platform: template
+    switches:
+      plex_shield:
+        value_template: "{{ is_state_attr('media_player.nvidia_shield', 'source', 'Plex') and is_state_attr('media_player.living_room_tv_2', 'source', 'Home Theatre') }}"
+        turn_on:
+          service: script.turn_on
+          target:
+            entity_id: script.1579992709710
+        turn_off:
+          service: script.turn_on
+          target:
+            entity_id: script.1587548231616
+        icon_template: >-
+          {% if is_state_attr('media_player.denon_avr', 'source', 'SHIELD') %}
+            mdi:plex
+          {% else %}
+            mdi:plex
+          {% endif %}
+
+
+```
+
+
+
+
+/
 
 
 **Required custom cards:**
@@ -42,18 +109,6 @@ Note: The mobile 'Devices' card is the same config but with some bits taken out 
 - [Light Popup Card](https://github.com/DBuit/light-popup-card)   
 - [Light Entity Card](https://github.com/ljmerza/light-entity-card)   
 
-
- **Note:** The buttons for 'Switch', 'Xbox', 'Plex' and 'Shield' all simply just call scripts that I've created that turn on my TV, surround sound and switch my TV & Receiver to the appropiate HDMI and turns the corresponding device on if supported. (The Nintendo Switch won't turn on this way as we cannot control it via HA). 
- 
- The Script buttons are actually Template Switches, so it allows HA to report the 'on state', for example the Shield switch appears on when I'm on my Nvidia Shield. [Example extract from my config.yaml for this.](https://github.com/conorlap/Wilberforce-Home-Assistant-Dashboard/blob/main/Template%20Switch%20config.yaml)
-
-
-
-
-
-
-
-/
 
 /
 
@@ -71,9 +126,11 @@ Note: The mobile 'Devices' card is the same config but with some bits taken out 
 
 ## 3. The ['Macbook Pro' card](https://github.com/conorlap/Wilberforce-Home-Assistant-Dashboard/blob/main/Macbook%20Pro%20card)
 
-**Required custom cards:**
-- [Lovelace Slider Entity Row](https://github.com/thomasloven/lovelace-slider-entity-row)
-- [Custom Bar-Card](https://github.com/custom-cards/bar-card)
+![Screenshot 2022-05-10 at 11 46 24](https://user-images.githubusercontent.com/57415184/167611659-83c473e7-9954-44ee-ac4b-2fe0652df354.png)
+
+
+
+
 
 
 
@@ -87,8 +144,11 @@ Note: The mobile 'Devices' card is the same config but with some bits taken out 
 
 
 
+/
 
-
+**Required custom cards:**
+- [Lovelace Slider Entity Row](https://github.com/thomasloven/lovelace-slider-entity-row)
+- [Custom Bar-Card](https://github.com/custom-cards/bar-card)
 
 /
 
@@ -96,7 +156,6 @@ Note: The mobile 'Devices' card is the same config but with some bits taken out 
 
 /
 
-/
 
 
 
@@ -106,9 +165,11 @@ Note: The mobile 'Devices' card is the same config but with some bits taken out 
 
 ## 4. The [Server Stats/Uptime card](https://github.com/conorlap/Wilberforce-Home-Assistant-Dashboard/blob/main/Server%20Stats%20%26%20Uptime%20Card)
 
-**Required custom cards:**
-- [Bar Card](https://github.com/custom-cards/bar-card)
-- [Uptime Card](https://github.com/dylandoamaral/uptime-card)
+
+![Screenshot 2022-05-10 at 11 48 57](https://user-images.githubusercontent.com/57415184/167612081-42c8f696-fc83-42a7-afab-f164dede083f.png)
+
+
+
 
 
 **A:** How I pull my local server stats: https://www.home-assistant.io/integrations/systemmonitor/
@@ -119,6 +180,7 @@ Note: The mobile 'Devices' card is the same config but with some bits taken out 
 
 **D:** [SMART integration](https://community.home-assistant.io/t/monitor-your-hdd-smart-status/194132), this is quite awkward to setup!
 
+![Screenshot 2022-05-10 at 11 49 48](https://user-images.githubusercontent.com/57415184/167612206-f1d6b9c4-a6ab-4303-b3fb-92f10a3190db.png)
 
 
 
@@ -127,12 +189,16 @@ Note: The mobile 'Devices' card is the same config but with some bits taken out 
 
 /
 
-/
+
+**Required custom cards:**
+- [Bar Card](https://github.com/custom-cards/bar-card)
+- [Uptime Card](https://github.com/dylandoamaral/uptime-card)
 
 /
 
 /
 
+/
 
 
 
@@ -140,8 +206,9 @@ Note: The mobile 'Devices' card is the same config but with some bits taken out 
 
 ## 5. The [Plex/Tautulli bandwidth card](https://github.com/conorlap/Wilberforce-Home-Assistant-Dashboard/blob/main/Plex%20card)
 
-**Required custom cards:**
-- [Mini Graph Card](https://github.com/kalkih/mini-graph-card)
+![Screenshot 2022-05-10 at 11 51 13](https://user-images.githubusercontent.com/57415184/167612447-dee87a5a-3f79-4993-8b05-d8f170e1b7ab.png)
+
+
 
 
 
@@ -149,6 +216,10 @@ Note: The mobile 'Devices' card is the same config but with some bits taken out 
 
 
 /
+
+**Required custom cards:**
+- [Mini Graph Card](https://github.com/kalkih/mini-graph-card)
+
 
 /
 
