@@ -68,7 +68,7 @@ The list of commands you can publish are [here](https://www.denon.com/-/media/fi
  
  The Script buttons are actually Template Switches, so it allows HA to report the 'on state', for example the Shield switch appears **'on'** when my Nvidia Shield is on AND my TV is currently on the correct HDMI input. 
  
- **Example extract from my config.yaml for this:**
+ **Example extract from my config.yaml for the Template Switches:**
 
 
 ```
