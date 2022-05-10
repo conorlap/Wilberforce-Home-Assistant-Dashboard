@@ -58,7 +58,9 @@ Note: The mobile 'Devices' card is the same config but with some bits taken out 
 
  **Note:** The buttons for 'Switch', 'Xbox', 'Plex' and 'Shield' all simply just call scripts that I've created that turn on my TV, surround sound and switch my TV & Receiver to the appropiate HDMI and turns the corresponding device on if supported. (The Nintendo Switch won't turn on this way as we cannot control it via HA). 
  
- The Script buttons are actually Template Switches, so it allows HA to report the 'on state', for example the Shield switch appears on when I'm on my Nvidia Shield. [Example extract from my config.yaml for this:](https://github.com/conorlap/Wilberforce-Home-Assistant-Dashboard/blob/main/Template%20Switch%20config.yaml)
+ The Script buttons are actually Template Switches, so it allows HA to report the 'on state', for example the Shield switch appears **'on'** when my Nvidia Shield is on AND my TV is currently on the correct HDMI input. 
+ 
+ **Example extract from my config.yaml for this:**
 
 
 ```
