@@ -13,19 +13,19 @@ A few people have been asking for the yaml config so here goes, along with some 
 # SCREENSHOTS:
 
 ## Desktop Dashboard:
+![Screenshot 2023-01-25 at 18 34 08](https://user-images.githubusercontent.com/57415184/214653183-b5e4e29c-bae3-4352-9086-838cee3f4f82.png)
+![Screenshot 2023-01-25 at 18 25 58](https://user-images.githubusercontent.com/57415184/214653305-6b169411-3cc5-4bde-b73a-06ad47807569.png)
 
-![1](https://user-images.githubusercontent.com/57415184/167597383-0dbfb352-4905-405b-8a5a-700638a78d69.jpg)
-![2](https://user-images.githubusercontent.com/57415184/167597404-33cbde7f-0331-4b96-9279-4b070365ae44.jpg)
+
 
 ## Mobile Dashboard:
-![Screenshot 2023-01-25 at 15 37 38](https://user-images.githubusercontent.com/57415184/214606639-f8f8da64-ad8c-488d-a94f-0fc11366bfd7.png)
-![Screenshot 2023-01-25 at 15 38 38](https://user-images.githubusercontent.com/57415184/214606886-24091a47-784e-44c9-95d7-4fd47010fe9d.png)
-
-![Screenshot 2023-01-25 at 15 39 32](https://user-images.githubusercontent.com/57415184/214607101-d3e2cbb6-f4e4-4127-8d7d-e3dcfebd23aa.png)
-![Screenshot 2023-01-25 at 15 39 54](https://user-images.githubusercontent.com/57415184/214607198-5cf1187e-7603-46c4-a672-4da1de6ea289.png)
 
 
+![s](https://user-images.githubusercontent.com/57415184/214656644-f429a6c7-ac7a-4a52-b79b-11e269561322.png)
+![s](https://user-images.githubusercontent.com/57415184/214656065-8b82d07a-30d4-496d-9cf6-5db412e394ab.png)
 
+![f](https://user-images.githubusercontent.com/57415184/214656073-69600ae6-a586-4296-b27d-a73c9ad09c24.png)
+![w](https://user-images.githubusercontent.com/57415184/214656099-92ac5285-9e4f-45b4-8dd6-a663a388f1b7.png)
 
 .
 
