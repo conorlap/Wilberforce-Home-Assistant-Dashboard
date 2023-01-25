@@ -1,23 +1,31 @@
-type: vertical-stack
+type: custom:stack-in-card
+keep:
+  outer_padding: true
+  border-radius: true
+  box_shadow: false
+  background: false
+  margin: false
 cards:
-  - type: custom:mini-graph-card
-    name: PLEX BANDWIDTH
-    icon: mdi:plex
-    height: 100
-    hours_to_show: 0.25
-    points_per_hour: 20
-    update_interval: 1
-    animate: true
-    smoothing: true
-    entities:
-      - entity: sensor.tautulli_total_bandwidth
-      - sensor.tautulli_lan_bandwidth
-      - sensor.tautulli_wan_bandwidth
-  - type: horizontal-stack
+  - type: vertical-stack
     cards:
-      - type: entity
-        entity: sensor.plex_mynas
-        name: PLEX
-      - type: entity
-        entity: sensor.tautulli_count_transcode
-        name: TRANSCODING
+      - type: custom:mini-graph-card
+        name: PLEX BANDWIDTH
+        icon: si:plex
+        height: 150
+        hours_to_show: 1
+        points_per_hour: 60
+        update_interval: 1
+        animate: true
+        smoothing: true
+        entities:
+          - entity: sensor.tautulli_total_bandwidth
+          - sensor.tautulli_lan_bandwidth
+          - sensor.tautulli_wan_bandwidth
+      - type: horizontal-stack
+        cards:
+          - type: entity
+            entity: sensor.plex_jaynas
+            name: PLEX
+          - type: entity
+            entity: sensor.transcodes
+            name: TRANSCODING
