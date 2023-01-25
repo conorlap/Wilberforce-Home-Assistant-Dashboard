@@ -192,7 +192,7 @@ Note that this only works when my Macbook is on my local network.
 
 **A:** [What I use to pull my local server stats](https://www.home-assistant.io/integrations/systemmonitor/)
 
-**B:** [What I use to pull my remote offsite backup server stats](https://www.home-assistant.io/integrations/glances/) (You must open ports on router at remote site for this to work, **be careful!)**
+**B:** [What I use to pull my remote offsite backup server stats](https://www.home-assistant.io/integrations/glances/) (My servers are connected together via Wireguard VPN so no need to open ports)**
 
 **C:** [Uptime integration](https://www.home-assistant.io/integrations/uptime/)
 
