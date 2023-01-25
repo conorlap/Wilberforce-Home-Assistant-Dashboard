@@ -17,6 +17,11 @@ A few people have been asking for the yaml config so here goes, along with some 
 **Main dashboard:**
 ![ha1](https://user-images.githubusercontent.com/57415184/214659523-14d6e2a9-ad9c-40c9-9006-5663850775ce.png)
 
+**Note**: The blank space there fills up with other cards throughout the day based on conditions. For example, Alexa timer countdowns)
+
+.
+
+
 **Server/Systems dashboard:**
 ![Screenshot 2023-01-25 at 18 25 58](https://user-images.githubusercontent.com/57415184/214653305-6b169411-3cc5-4bde-b73a-06ad47807569.png)
 
