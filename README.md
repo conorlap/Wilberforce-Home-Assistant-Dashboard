@@ -15,7 +15,7 @@ A few people have been asking for the yaml config so here goes, along with some 
 ## Desktop Dashboard:
 
 **Main dashboard:**
-![Screenshot 2023-01-25 at 18 34 08](https://user-images.githubusercontent.com/57415184/214653183-b5e4e29c-bae3-4352-9086-838cee3f4f82.png)
+![ha1](https://user-images.githubusercontent.com/57415184/214659523-14d6e2a9-ad9c-40c9-9006-5663850775ce.png)
 
 **Server/Systems dashboard:**
 ![Screenshot 2023-01-25 at 18 25 58](https://user-images.githubusercontent.com/57415184/214653305-6b169411-3cc5-4bde-b73a-06ad47807569.png)
@@ -27,7 +27,7 @@ A few people have been asking for the yaml config so here goes, along with some 
 **Main Mobile Dashboard:**
 
 
-![ha1](https://user-images.githubusercontent.com/57415184/214659523-14d6e2a9-ad9c-40c9-9006-5663850775ce.png)
+![Mobile Main](https://user-images.githubusercontent.com/57415184/214659989-3d601fc8-4e4b-435a-9208-d0f7e4ee876a.png)
 ![c](https://user-images.githubusercontent.com/57415184/214658584-6af798ef-fae8-45e5-8fe1-0be861f86db8.png)
 
 **Server/Systems dasbboard:**
