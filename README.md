@@ -241,10 +241,7 @@ switch:
 
 ## 5. The [Plex/Tautulli bandwidth card](https://github.com/conorlap/Wilberforce-Home-Assistant-Dashboard/blob/main/Plex%20card)
 
-![Screenshot 2022-05-10 at 11 51 13](https://user-images.githubusercontent.com/57415184/167612447-dee87a5a-3f79-4993-8b05-d8f170e1b7ab.png)
-
-
-
+![Screenshot 2022-05-10 at 11 51 13](https://user-images.githubusercontent.com/57415184/214666954-297d219a-3d03-4943-87e7-e573ec09d74d.png)
 
 
 
@@ -254,7 +251,7 @@ switch:
 
 **Required custom cards:**
 - [Mini Graph Card](https://github.com/kalkih/mini-graph-card)
-
+- [Stack In Card](https://github.com/custom-cards/stack-in-card)
 
 
 
