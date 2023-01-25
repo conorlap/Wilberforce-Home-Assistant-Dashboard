@@ -1,121 +1,334 @@
-type: vertical-stack
+type: custom:stack-in-card
+keep:
+  outer_padding: true
+  border-radius: true
+  box_shadow: false
+  background: false
+  margin: false
 cards:
-  - type: entities
-    entities:
-      - entity: sensor.docker_containers_running
-      - entity: sensor.docker_containers_total
-      - entity: sensor.last_boot
-      - entity: switch.docker_transmission
-    title: MyNAS
-    icon: phu:nas
-    show_header_toggle: false
-    state_color: true
-    footer:
-      image: null
-      entity: null
-      type: custom:bar-card
-      entities:
-        - entity: sensor.processor_temperature
-        - entity: sensor.processor_use_percent
-        - entity: sensor.memory_use_percent
-        - entity: sensor.disk_use_percent_files
-        - entity: sensor.disk_use_percent_ssd01
-        - entity: sensor.home_assistant_v2_db_size
-          severity:
-            - from: '0'
-              to: '1000'
-              color: green
-              icon: mdi:check
-            - from: '1000'
-              to: '5000'
-              color: orange
-              icon: mdi:alert
-            - from: '5000'
-              to: '20000'
-              icon: mdi:alert-decagram
-              color: red
-          max: '3000'
-          decimal: '0'
-        - entity: sensor.frigate_storage_space
-          icon: mdi:cctv
-          color: green
-        - entity: sensor.disk_use_percent_timemachine
-        - entity: sensor.speedtest_download
-          max: '75'
-          target: '72'
-          animation:
-            state: 'on'
-            speed: '1'
-          severity:
-            - from: '0'
-              to: '40'
-              color: Red
-            - from: '41'
-              to: '59'
-              color: Orange
-            - from: '60'
-              to: '90'
-              color: Green
-        - entity: sensor.speedtest_upload
-          severity:
-            - from: '0'
-              to: '10'
-              color: Red
-            - from: '10.1'
-              to: '15'
-              color: Orange
-            - from: '15.1'
-              to: '80'
-              color: Green
-          max: '30'
-      title: null
-      direction: right
-      height: 28
-      positions:
-        icon: inside
-        indicator: 'off'
-        name: inside
-        minmax: 'off'
-        value: inside
-      severity:
-        - from: '80'
-          to: '100'
-          color: Red
-        - from: '70'
-          to: '79'
-          color: Orange
-        - from: '0'
-          to: '69'
-          color: Green
-  - type: custom:uptime-card
-    entity: binary_sensor.mynas
-    icon: hass:server
-    name: Uptime
-    hours_to_show: 72
-    status_adaptive_color: true
-    average_text: '% uptime'
-    alias:
-      ok: Online
-      ko: Offline
-    color:
-      icon: white
-      ok: '#45C669'
-      ko: '#C6B145'
-      half: '#C66445'
-      none: '#C9C9C9'
-      title: white
-    show:
-      header: true
-      title: true
-      icon: true
-      footer: true
-      status: true
-      timeline: true
-      average: true
-    tooltip:
-      animation: true
-    icon_adaptive_color: true
-    bar:
-      height: 36
-      round: 1
-      amount: 55
+  - type: custom:mushroom-title-card
+    title: ' 🖥   JayNAS'
+    icon: mdi:ab-testing
+  - type: custom:stack-in-card
+    mode: vertical
+    cards:
+      - type: custom:stack-in-card
+        mode: horizontal
+        cards:
+          - type: custom:mushroom-person-card
+            entity: binary_sensor.jaynas
+            name: Remote Status
+            use_entity_picture: true
+            layout: horizontal
+            card_mod:
+              style: |
+                ha-card:active {
+                    transform: scale(0.975);
+                    transition: 0s;
+                }
+          - type: custom:mushroom-person-card
+            entity: sensor.jaynas_uptime
+            name: Uptime
+            use_entity_picture: true
+            layout: horizontal
+            card_mod:
+              style: |
+                ha-card:active {
+                    transform: scale(0.975);
+                    transition: 0s;
+                }
+      - type: custom:stack-in-card
+        mode: horizontal
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: binary_sensor.jaynas_update_available
+            use_entity_picture: true
+            name: Updates
+            layout: horizontal
+            icon_color: green
+            card_mod:
+              style: |
+                ha-card:active {
+                    transform: scale(0.975);
+                    transition: 0s;
+                }
+          - type: custom:mushroom-entity-card
+            entity: binary_sensor.jaynas_reboot_pending
+            name: Reboot pending
+            use_entity_picture: true
+            layout: horizontal
+            card_mod:
+              style: |
+                ha-card:active {
+                    transform: scale(0.975);
+                    transition: 0s;
+                }
+      - type: custom:stack-in-card
+        mode: horizontal
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: switch.docker_transmission
+            icon_color: green
+            fill_container: false
+            tap_action:
+              action: toggle
+            card_mod:
+              style: |
+                ha-card:active {
+                    transform: scale(0.975);
+                    transition: 0s;
+                }
+          - type: custom:mushroom-entity-card
+            entity: sensor.docker_containers_running
+            use_entity_picture: true
+            name: Containers Running
+            layout: horizontal
+            icon_color: grey
+            card_mod:
+              style: |
+                ha-card:active {
+                    transform: scale(0.975);
+                    transition: 0s;
+                }
+      - type: custom:stack-in-card
+        mode: horizontal
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: switch.docker_frigate
+            icon_color: green
+            fill_container: false
+            tap_action:
+              action: toggle
+            card_mod:
+              style: |
+                ha-card:active {
+                    transform: scale(0.975);
+                    transition: 0s;
+                }
+          - type: custom:mushroom-entity-card
+            entity: script.reboot_ad410_doorbell
+            icon_color: green
+            name: Reboot Doorbell
+            fill_container: false
+            tap_action:
+              action: more-info
+            card_mod:
+              style: |
+                ha-card:active {
+                    transform: scale(0.975);
+                    transition: 0s;
+                }
+      - type: custom:stack-in-card
+        mode: vertical
+        cards:
+          - type: custom:bar-card
+            entities:
+              - entity: sensor.processor_temperature
+                severity:
+                  - from: '0'
+                    to: '59'
+                    color: Green
+                  - from: '60'
+                    to: '110'
+                    color: Red
+              - entity: sensor.processor_use_percent
+              - entity: sensor.memory_use_percent
+            title: null
+            direction: right
+            height: 23
+            positions:
+              icon: inside
+              indicator: 'off'
+              name: inside
+              minmax: 'off'
+              value: inside
+            severity:
+              - from: '80'
+                to: '100'
+                color: Red
+              - from: '70'
+                to: '79'
+                color: Orange
+              - from: '0'
+                to: '69'
+                color: Green
+          - type: custom:bar-card
+            entities:
+              - entity: sensor.jaynas_sda
+              - entity: sensor.jaynas_sdd
+              - entity: sensor.jaynas_sdc
+              - entity: sensor.jaynas_sdb
+              - entity: sensor.jaynas_sde
+              - entity: sensor.jaynas_sdf
+            direction: right
+            height: 23
+            positions:
+              icon: inside
+              indicator: 'off'
+              name: inside
+              minmax: 'off'
+              value: inside
+            severity:
+              - from: '0'
+                to: '39'
+                color: Green
+              - from: '40'
+                to: '42'
+                color: Orange
+              - from: '43'
+                to: '110'
+                color: Red
+            max: '55'
+            title: 'HDD Temps:'
+            columns: '2'
+            entity_row: false
+  - type: custom:stack-in-card
+    mode: vertical
+    cards:
+      - type: custom:bar-card
+        entities:
+          - entity: sensor.disk_use
+            max: '206.91'
+            severity:
+              - from: '0'
+                to: '150'
+                color: Green
+              - from: '151'
+                to: '190'
+                color: Orange
+              - from: '191'
+                to: '210'
+                color: Red
+          - entity: sensor.disk_use_files
+            max: '34.239'
+            severity:
+              - from: '0'
+                to: '28'
+                color: Green
+              - from: '28'
+                to: '31'
+                color: Orange
+              - from: '32'
+                to: '50'
+                color: Red
+        direction: right
+        height: 23
+        positions:
+          icon: inside
+          indicator: 'off'
+          name: inside
+          minmax: 'off'
+          value: inside
+        severity:
+          - from: '0'
+            to: '75'
+            color: Green
+          - from: '76'
+            to: '90'
+            color: Orange
+          - from: '91'
+            to: '100'
+            color: Red
+        max: '100'
+        title: 'Filesystems:'
+        columns: '1'
+        entity_row: false
+      - type: custom:bar-card
+        entities:
+          - entity: sensor.jaynas_srv_dev_disk_by_label_hdd01
+          - entity: sensor.jaynas_srv_dev_disk_by_label_hdd02
+          - entity: sensor.jaynas_srv_dev_disk_by_label_hdd03
+          - entity: sensor.jaynas_srv_dev_disk_by_label_hdd04
+          - entity: sensor.jaynas_srv_dev_disk_by_label_hdd05
+          - entity: sensor.jaynas_srv_dev_disk_by_label_timemachinery
+        direction: right
+        height: 23
+        positions:
+          icon: inside
+          indicator: 'off'
+          name: inside
+          minmax: 'off'
+          value: inside
+        severity:
+          - from: '0'
+            to: '75'
+            color: Green
+          - from: '76'
+            to: '90'
+            color: Orange
+          - from: '91'
+            to: '100'
+            color: Red
+        max: '100'
+        title: ''
+        columns: '1'
+        entity_row: false
+      - type: custom:bar-card
+        title: ''
+        height: 23
+        columns: '2'
+        entities:
+          - entity: sensor.home_assistant_v2_db_size
+            severity:
+              - from: '0'
+                to: '800'
+                color: green
+                icon: mdi:check
+              - from: '801'
+                to: '1000'
+                color: orange
+                icon: mdi:alert
+              - from: '1001'
+                to: '10000000'
+                icon: mdi:alert-decagram
+                color: red
+            max: '1000'
+            decimal: '0'
+            name: HA DB
+            positions:
+              icon: inside
+              emanicon: inside
+          - entity: sensor.frigate_storage_space
+            icon: mdi:cctv
+            color: green
+            name: Frigate
+            severity:
+              - from: '0'
+                to: '35'
+                color: green
+                icon: mdi:check
+              - from: '36'
+                to: '40'
+                color: orange
+                icon: mdi:alert
+              - from: '41'
+                to: '1000000'
+                icon: mdi:alert-decagram
+                color: red
+            max: '50'
+            positions:
+              icon: inside
+  - type: custom:stack-in-card
+    mode: vertical
+    cards:
+      - type: statistic
+        entity: sensor.jaynas_server_today_energy
+        period:
+          calendar:
+            period: day
+        stat_type: change
+        name: JayNAS Server TODAY
+  - type: custom:stack-in-card
+    mode: vertical
+    cards:
+      - type: vertical-stack
+        cards:
+          - cardOptions: null
+            entities:
+              - sensor.speedtest_download
+              - sensor.speedtest_upload
+            name: NETWORK SPEED
+            height: 80
+            align_state: null
+            type: custom:mini-graph-card
+            hours_to_show: 168
