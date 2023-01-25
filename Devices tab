@@ -1,92 +1,91 @@
-type: vertical-stack
+type: custom:stack-in-card
+keep:
+  outer_padding: true
+  border-radius: true
+  box_shadow: false
+  background: false
+  margin: false
 cards:
-  - entities:
+  - type: custom:mushroom-title-card
+    title: 📱  Devices
+  - type: custom:stack-in-card
+    mode: vertical
+    cards:
       - type: custom:stack-in-card
-        mode: vertical
+        mode: horizontal
         cards:
-          - type: custom:stack-in-card
-            mode: horizontal
-            cards:
-              - type: custom:mushroom-person-card
-                entity: person.xxx
-                use_entity_picture: true
-                layout: horizontal
-              - type: custom:mushroom-person-card
-                entity: person.xxxx
-                use_entity_picture: true
-                layout: horizontal
-          - type: custom:stack-in-card
-            mode: horizontal
-            cards:
-              - type: custom:mushroom-entity-card
-                entity: sensor.xxsgalaxys20_wifi_connection
-                use_entity_picture: true
-                layout: horizontal
-                icon_color: green
-              - type: custom:mushroom-entity-card
-                entity: sensor.xxx_phone_wifi_connection
-                use_entity_picture: true
-                layout: horizontal
-                icon_color: green
-          - type: custom:stack-in-card
-            mode: horizontal
-            cards:
-              - type: custom:mushroom-entity-card
-                entity: sensor.xxsgalaxys20_battery_level
-                use_entity_picture: true
-                layout: horizontal
-                icon_color: green
-                name: xxx's S20+
-              - type: custom:mushroom-entity-card
-                entity: sensor.xxx_phone_battery_level
-                use_entity_picture: true
-                layout: horizontal
-                name: xxx's S20+
-                icon_color: green
-      - type: custom:mushroom-title-card
-        title: null
+          - type: custom:mushroom-person-card
+            entity: person.xxz
+            use_entity_picture: true
+            layout: horizontal
+            card_mod:
+              style: |
+                ha-card:active {
+                    transform: scale(0.975);
+                    transition: 0s;
+                }
+          - type: custom:mushroom-person-card
+            entity: person.xxx
+            use_entity_picture: true
+            layout: horizontal
+            card_mod:
+              style: |
+                ha-card:active {
+                    transform: scale(0.975);
+                    transition: 0s;
+                }
       - type: custom:stack-in-card
         mode: horizontal
         cards:
           - type: custom:mushroom-entity-card
-            entity: binary_sensor.front_door_sensor_contact
+            entity: sensor.xxzgalaxys20_wifi_connection
             use_entity_picture: true
             layout: horizontal
-            icon_color: red
-          - type: custom:mushroom-entity-card
-            entity: binary_sensor.washing_machine_vibration_sensor_vibration
-            use_entity_picture: true
-            layout: horizontal
-            name: Washing Machine
             icon_color: green
+            card_mod:
+              style: |
+                ha-card:active {
+                    transform: scale(0.975);
+                    transition: 0s;
+                }
+          - type: custom:mushroom-entity-card
+            entity: sensor.xxx_phone_wifi_connection
+            use_entity_picture: true
+            layout: horizontal
+            icon_color: green
+            card_mod:
+              style: |
+                ha-card:active {
+                    transform: scale(0.975);
+                    transition: 0s;
+                }
       - type: custom:stack-in-card
         mode: horizontal
         cards:
-          - type: custom:mushroom-template-card
-            primary: >-
-              {% set black_bin = (as_timestamp(now())|timestamp_custom ('%U') |
-              int % 2) == 0 %}
-
-              {% if (black_bin == True ) %}    
-                It's Black bin week
-              {% else %}       
-                It's Brown bin week
-              {% endif %}
-            icon: mdi:trash-can
+          - type: custom:mushroom-entity-card
+            entity: sensor.xxzgalaxys20_battery_level
+            use_entity_picture: true
             layout: horizontal
-            icon_color: >
-
-              {% set black_bin = (as_timestamp(now())|timestamp_custom ('%U') |
-              int % 2) == 0 %}
-
-              {% if (black_bin == True ) %}    
-
-
-              {% else %}       
-
-              brown
-
-              {% endif %}
+            icon_color: green
+            name: xxz's S20+
+            card_mod:
+              style: |
+                ha-card:active {
+                    transform: scale(0.975);
+                    transition: 0s;
+                }
+          - type: custom:mushroom-entity-card
+            entity: sensor.xxx_phone_battery_level
+            use_entity_picture: true
+            layout: horizontal
+            name: xxx's S20+
+            icon_color: green
+            card_mod:
+              style: |
+                ha-card:active {
+                    transform: scale(0.975);
+                    transition: 0s;
+                }
       - type: custom:stack-in-card
         mode: horizontal
         cards:
@@ -95,88 +94,263 @@ cards:
             use_entity_picture: true
             layout: horizontal
             icon_color: green
-            name: xx's Watch
+            name: xxz's Watch
+            card_mod:
+              style: |
+                ha-card:active {
+                    transform: scale(0.975);
+                    transition: 0s;
+                }
           - type: custom:mushroom-entity-card
-            entity: sensor.xxs_macbook_pro_internal_battery_level
+            entity: sensor.xxz_macbook_pro_internal_battery_level
             use_entity_picture: true
             layout: horizontal
-            name: xx's Macbook Pro
+            name: xxz's Macbook Pro
             icon_color: green
+            card_mod:
+              style: |
+                ha-card:active {
+                    transform: scale(0.975);
+                    transition: 0s;
+                }
+      - type: custom:stack-in-card
+        cards:
+          - type: custom:mushroom-template-card
+            entity: number.macbook_pro_volume
+            tap_action:
+              action: null
+            icon: >
+              {% set vol_level = states(entity) | float %}
+
+
+              {% if (vol_level == 0) or is_state('switch.macbook_pro_mute',
+              'on') %}
+                mdi:volume-mute
+              {% elif vol_level > 50 %}
+                mdi:volume-high
+              {% elif vol_level < 10 %}
+                mdi:volume-low
+              {% else %}
+                mdi:volume-medium
+              {% endif %}
+            badge_icon: ''
+            icon_color: |
+              {% if is_state("switch.macbook_pro_mute", "on") %}
+                red
+              {% else %}
+                green
+              {% endif %}
+            primary: xxz's Macbook Pro Volume
+            secondary: |
+              {% set vol = states(entity) | float  %}
+              {{ vol | round | int }}%
+          - type: custom:my-slider
+            entity: number.macbook_pro_volume
+            radius: 12px
+            height: 20px
+            mainSliderColor: rgb(var(--mush-rgb-indigo))
+            secondarySliderColor: rgba(var(--mush-rgb-indigo), 0.2)
+            mainSliderColorOff: rgb(var(--mush-rgb-disabled))
+            secondarySliderColorOff: rgba(var(--mush-rgb-disabled), 0.2)
+            thumbHorizontalPadding: 0px
+            thumbVerticalPadding: 0px
+            thumbWidth: 0px
+            card_mod:
+              style: |
+                ha-card {
+                  padding: 0px 11px 11px;
+                  --mush-rgb-disabled: 189,189,189;
+                  --mush-rgb-indigo: 63, 81, 181;
+                }
+          - type: custom:mushroom-template-card
+            primary: ''
+            secondary: ''
+            icon: |
+              {% set vol_level = states(entity) | float %}
+              {% if vol_level == 0 %}
+                mdi:volume-mute
+              {% elif vol_level > 50 %}
+                mdi:volume-high
+              {% elif vol_level < 0.33 %}
+                mdi:volume-low
+              {% else %}
+                mdi:volume-medium
+              {% endif %}
+            badge_icon: ''
+            icon_color: |
+              {% if is_state("switch.macbook_pro_mute", "on") %}
+                red
+              {% else %}
+                green
+              {% endif %}
+            entity: switch.macbook_pro_mute
+            card_mod:
+              style: |-
+                ha-card {
+                  margin-top: -97px;
+                  margin-left: 00px;
+
+                }
       - type: custom:stack-in-card
         mode: vertical
         cards:
-          - type: custom:text-divider-row
-            text: xx's Macbook Pro
-            align: centre
-          - type: custom:stack-in-card
-            mode: horizontal
-            cards:
-              - type: custom:slider-entity-row
-                entity: number.macbook_pro_volume
-                full_row: true
-                grow: null
-              - type: button
-                entity: switch.macbook_pro_mute
-                icon_height: 22px
-                show_name: false
-      - type: custom:mushroom-title-card
-        title: null
-      - type: custom:mini-media-player
-        entity: media_player.living_room_echo_dot
-        group: false
-        info: scroll
-        source: icon
-        artwork: material
-        progress: true
-        runtime: true
-        replace_mute: play_pause
-        hide:
-          volume: false
-          source: true
-          controls: true
-          power: true
-          info: false
-        volume_stateless: false
-        toggle_power: false
-      - type: custom:mini-media-player
-        entity: media_player.bedroom_echo_dot
-        group: false
-        info: short
-        source: icon
-        artwork: material
-        progress: false
-        runtime: false
-        replace_mute: play_pause
-        hide:
-          volume: false
-          source: true
-          controls: true
-          power: true
-          info: false
-        volume_stateless: false
-        toggle_power: false
-      - type: custom:mini-media-player
-        entity: media_player.office_echo_dot
-        group: false
-        info: short
-        source: icon
-        artwork: material
-        progress: false
-        runtime: false
-        replace_mute: play_pause
-        hide:
-          volume: false
-          source: true
-          controls: true
-          power: true
-          info: false
-        volume_stateless: false
-        toggle_power: false
+          - type: conditional
+            conditions:
+              - entity: input_boolean.away_lighting
+                state: 'on'
+            card:
+              type: custom:mushroom-entity-card
+              entity: input_boolean.away_lighting
+              use_entity_picture: true
+              layout: horizontal
+              name: Security Lighting Mode
+              icon_color: green
+      - type: markdown
+        content: '# '
+        style: |
+          ha-card {
+            box-shadow: none;
+            border: none;
+            margin: 0;
+          }
+          ha-markdown.no-header {
+            box-shadow: none;
+            padding: 0 0 0 0px;
+            border: none;
+            margin: 1;
+          }
+      - type: custom:stack-in-card
+        mode: horizontal
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: binary_sensor.front_door_sensor_contact
+            use_entity_picture: true
+            layout: horizontal
+            icon_color: red
+            card_mod:
+              style: |
+                ha-card:active {
+                    transform: scale(0.975);
+                    transition: 0s;
+                }
+          - type: custom:mushroom-template-card
+            primary: Dehumidifer ON time
+            secondary: >-
+              {% set hours = states('sensor.dehumidifier_time_on_today') | float
+              %}
+
+              {% set minutes = ((hours % 1) * 60) | int %}
+
+              {% set hours = (hours - (hours % 1)) | int %}
+
+              {{ '%02i:%02i'%(hours, minutes) }}
+            icon: mdi:clock
+            entity: sensor.dehumidifier_time_on_today
+            double_tap_action:
+              action: none
+            hold_action:
+              action: none
+            tap_action:
+              action: more-info
+            card_mod:
+              style: |
+                ha-card:active {
+                    transform: scale(0.975);
+                    transition: 0s;
+                }
+      - type: custom:stack-in-card
+        mode: horizontal
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: sensor.dehumidifier_cost_today
+            use_entity_picture: true
+            icon: mdi:currency-gbp
+            layout: horizontal
+            card_mod:
+              style: |
+                ha-card:active {
+                    transform: scale(0.975);
+                    transition: 0s;
+                }
+          - type: custom:mushroom-entity-card
+            entity: sensor.dehumidifier_monthly_cost_sensor
+            name: Dehumidifier monthly cost
+            use_entity_picture: true
+            icon: mdi:currency-gbp
+            layout: horizontal
+            card_mod:
+              style: |
+                ha-card:active {
+                    transform: scale(0.975);
+                    transition: 0s;
+                }
+      - type: custom:stack-in-card
+        mode: horizontal
+        cards:
+          - type: custom:mushroom-template-card
+            primary: Washes done - {{ now().timestamp() | timestamp_custom('%B') }}
+            icon: mdi:washing-machine
+            entity: sensor.amount_of_washes_done_2
+            multiline_secondary: false
+            fill_container: false
+            tap_action:
+              action: more-info
+            secondary: '{{ states(''sensor.amount_of_washes_done_2'')|int }}'
+            card_mod:
+              style: |
+                ha-card:active {
+                    transform: scale(0.975);
+                    transition: 0s;
+                }
+      - type: custom:stack-in-card
+        mode: vertical
+        cards:
+          - type: conditional
+            conditions:
+              - entity: schedule.bin_day
+                state: 'on'
+            card:
+              type: custom:mushroom-template-card
+              primary: >-
+                {% set black_bin = (as_timestamp(now())|timestamp_custom ('%U')
+                | int % 2) == 0 %}
+
+                {% if (black_bin == True ) %}    
+                  It's Black bin week
+                {% else %}       
+                  It's Brown bin week
+                {% endif %}
+              icon: mdi:trash-can
+              layout: horizontal
+              icon_color: >
+
+                {% set black_bin = (as_timestamp(now())|timestamp_custom ('%U')
+                | int % 2) == 0 %}
+
+                {% if (black_bin == True ) %}    
+
+
+                {% else %}       
+
+                brown
+
+                {% endif %}
+              card_mod:
+                style: |
+                  ha-card:active {
+                      transform: scale(0.975);
+                      transition: 0s;
+                  }
+  - type: custom:mushroom-title-card
+    title: null
+  - type: custom:stack-in-card
+    mode: vertical
+    cards:
       - type: custom:mini-media-player
         entity: media_player.living_room_tv_2
         group: false
         info: short
-        source: icon
+        source: full
         progress: false
         artwork: material
         runtime: false
@@ -196,17 +370,16 @@ cards:
               id: Netflix
               type: source
             - icon: mdi:microsoft-xbox
-              id: '1581265772928'
+              id: script.1581265772928
               type: script
             - icon: phu:amazon-logo
               id: Amazon Prime Video
               type: source
             - icon: mdi:nintendo-switch
-              id: '1613035089823'
+              id: script.1613035089823
               type: script
-            - icon: mdi:plex
-              id: '1579992709710'
-              name: PLEX
+            - icon: si:plex
+              id: script.1579992709710
               type: script
             - icon: mdi:television-classic
               id: Live TV
@@ -214,6 +387,7 @@ cards:
               type: source
           columns: 4
           hide_when_off: true
+        sound_mode: icon
       - type: custom:stack-in-card
         mode: vertical
         cards:
@@ -242,11 +416,27 @@ cards:
               - entity: media_player.denon_avr
                 state: 'on'
             card:
+              type: custom:mushroom-template-card
+              primary: 'Sound Mode:'
+              secondary: |
+                {{state_attr('media_player.denon_avr', 'sound_mode_raw')}} 
+              icon: si:dolby
+              fill_container: true
+              multiline_secondary: false
+              tap_action:
+                action: more-info
+              entity: media_player.denon_avr
+          - type: conditional
+            conditions:
+              - entity: media_player.denon_avr
+                state: 'on'
+            card:
               type: entities
               entities:
                 - entity: switch.denondynamiceq
                   name: Dynamic EQ
                 - entity: input_number.subwoofer_level
+                - entity: input_number.center_level
       - type: custom:mini-media-player
         entity: media_player.nvidia_shield
         group: false
@@ -265,28 +455,36 @@ cards:
           icon_state: false
         volume_stateless: false
         toggle_power: false
-      - type: custom:mini-media-player
-        entity: media_player.plex_shield
-        group: false
-        info: scroll
-        artwork: full-cover
-        source: icon
-        progress: false
-        runtime: false
-        hide:
-          volume: true
-          source: false
-          controls: false
-          power: true
-          state_label: true
-          info: false
-          icon_state: false
-          power_state: false
-        volume_stateless: false
-        toggle_power: false
-        idle_view:
-          when_idle: true
-          when_standby: true
+      - type: custom:stack-in-card
+        mode: vertical
+        cards:
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.nvidia_shield_source_plex
+                state: 'on'
+            card:
+              type: custom:mini-media-player
+              entity: media_player.plex_shield
+              group: false
+              info: scroll
+              artwork: full-cover
+              source: icon
+              progress: false
+              runtime: false
+              hide:
+                volume: true
+                source: false
+                controls: false
+                power: true
+                state_label: true
+                info: false
+                icon_state: false
+                power_state: false
+              volume_stateless: false
+              toggle_power: false
+              idle_view:
+                when_idle: true
+                when_standby: true
       - type: custom:stack-in-card
         mode: vertical
         cards:
@@ -311,8 +509,99 @@ cards:
                 power_state: false
                 icon_state: false
                 state_label: false
-    show_header_toggle: false
-    title: Devices
-    icon: mdi:devices
-    type: entities
-    state_color: true
+  - type: markdown
+    content: '# '
+    style: |
+      ha-card {
+        box-shadow: none;
+        border: none;
+        margin: 0;
+      }
+      ha-markdown.no-header {
+        box-shadow: none;
+        padding: 0 0 0 0px;
+        border: none;
+        margin: 1;
+      }
+  - type: custom:stack-in-card
+    keep: null
+    cards:
+      - type: custom:mini-media-player
+        entity: media_player.living_room_echo_dot
+        group: false
+        info: scroll
+        source: icon
+        artwork: material
+        progress: true
+        runtime: true
+        replace_mute: play_pause
+        hide:
+          volume: false
+          source: true
+          controls: true
+          power: true
+          info: false
+        volume_stateless: false
+        toggle_power: false
+      - type: markdown
+        content: '# '
+        style: |
+          ha-card {
+            box-shadow: none;
+            border: none;
+            margin: 0;
+          }
+          ha-markdown.no-header {
+            box-shadow: none;
+            padding: 0 0 0 0px;
+            border: none;
+            margin: 1;
+          }
+      - type: custom:mini-media-player
+        entity: media_player.bedroom_echo_dot
+        group: false
+        info: short
+        source: icon
+        artwork: material
+        progress: false
+        runtime: false
+        replace_mute: play_pause
+        hide:
+          volume: false
+          source: true
+          controls: true
+          power: true
+          info: false
+        volume_stateless: false
+        toggle_power: false
+      - type: markdown
+        content: '# '
+        style: |
+          ha-card {
+            box-shadow: none;
+            border: none;
+            margin: 0;
+          }
+          ha-markdown.no-header {
+            box-shadow: none;
+            padding: 0 0 0 0px;
+            border: none;
+            margin: 1;
+          }
+      - type: custom:mini-media-player
+        entity: media_player.office_echo_dot
+        group: false
+        info: short
+        source: icon
+        artwork: material
+        progress: false
+        runtime: false
+        replace_mute: play_pause
+        hide:
+          volume: false
+          source: true
+          controls: true
+          power: true
+          info: false
+        volume_stateless: false
+        toggle_power: false
