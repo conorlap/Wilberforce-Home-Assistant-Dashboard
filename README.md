@@ -35,7 +35,7 @@ A few people have been asking for the yaml config so here goes, along with some 
 ![Mobile Main](https://user-images.githubusercontent.com/57415184/214659989-3d601fc8-4e4b-435a-9208-d0f7e4ee876a.png)
 ![c](https://user-images.githubusercontent.com/57415184/214658584-6af798ef-fae8-45e5-8fe1-0be861f86db8.png)
 
-**Note**: The two indoor cameras are set to only come on when nobody is home, I've just manually switched them on for the screenshots. I like having my front door as the main focus when I first open the app as it's useful to quickly check when someone's at the door.
+**Note**: The two indoor cameras are set to only turn on and display on the dashboard when nobody is home, I've just manually switched them on for the screenshots. I like having my front door as the main focus when I first open the app as it's useful to quickly check when someone's at the door.
 
 .
 
