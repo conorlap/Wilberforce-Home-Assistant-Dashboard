@@ -7,9 +7,6 @@ A few people have been asking for the yaml config so here goes, along with some 
 
 **Screenshots:** [Here](https://github.com/conorlap/Wilberforce-Home-Assistant-Dashboard#screenshots)
 
-/
-
-/
 
 
 ## 1. The ['Devices' desktop card](https://github.com/conorlap/Wilberforce-Home-Assistant-Dashboard/blob/main/Devices%20tab)  
