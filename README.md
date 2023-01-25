@@ -173,8 +173,7 @@ switch:
 
 ## 3. The ['Macbook Pro' card](https://github.com/conorlap/Wilberforce-Home-Assistant-Dashboard/blob/main/Macbook%20Pro%20card)
 
-![Screenshot 2022-05-10 at 11 46 24](https://user-images.githubusercontent.com/57415184/167611659-83c473e7-9954-44ee-ac4b-2fe0652df354.png)
-
+![Screenshot 2022-05-10 at 11 46 24](https://user-images.githubusercontent.com/57415184/214665300-c3abcc69-5b9c-43a7-a00e-d8ca3229c1d9.png)
 
 
 
@@ -187,20 +186,17 @@ switch:
 
 **Note:** The battery % simply comes from the Home Assistant MacOS app, you can expose many sensors from this.
 
-**A:** [How I control my Macbook Pro/mute](https://github.com/bessarabov/mac2mqtt)
+**A:** [How I control my Macbook Pro/mute/Sleep](https://github.com/bessarabov/mac2mqtt)
 
-**B:** [How I pull my Macbook Pro stats](https://www.home-assistant.io/integrations/glances/) and then once that is done,  install and configure glances on your Mac! 
 
-Note that this only works when my Macbook is on my local network.
 
 
 
 
 
 **Required custom cards:**
-- [Lovelace Slider Entity Row](https://github.com/thomasloven/lovelace-slider-entity-row)
-- [Custom Bar-Card](https://github.com/custom-cards/bar-card)
-
+- [Mushroom Cards](https://github.com/piitaya/lovelace-mushroom)
+- [Stack In Card](https://github.com/custom-cards/stack-in-card)
 .
 
 
@@ -212,12 +208,10 @@ Note that this only works when my Macbook is on my local network.
 
 
 
-## 4. The [Server Stats/Uptime card](https://github.com/conorlap/Wilberforce-Home-Assistant-Dashboard/blob/main/Server%20Stats%20%26%20Uptime%20Card)
+## 4. The [Server Stats](https://github.com/conorlap/Wilberforce-Home-Assistant-Dashboard/blob/main/Server%20Stats%20%26%20Uptime%20Card)
 
 
-![Screenshot 2022-05-10 at 11 48 57](https://user-images.githubusercontent.com/57415184/167612081-42c8f696-fc83-42a7-afab-f164dede083f.png)
-
-
+![Screenshot 2022-05-10 at 11 48 57](https://user-images.githubusercontent.com/57415184/214665844-7d3a083c-74df-4808-84f4-d82f12c9e31f.png)
 
 
 
@@ -226,10 +220,6 @@ Note that this only works when my Macbook is on my local network.
 **B:** [What I use to pull my remote offsite backup server stats](https://www.home-assistant.io/integrations/glances/) (My servers are connected together via Wireguard VPN so no need to open ports)
 
 **C:** [Uptime integration](https://www.home-assistant.io/integrations/uptime/)
-
-**D:** [SMART integration](https://community.home-assistant.io/t/monitor-your-hdd-smart-status/194132)-  **Note**: this is quite awkward to setup!
-
-![Screenshot 2022-05-10 at 11 49 48](https://user-images.githubusercontent.com/57415184/167612206-f1d6b9c4-a6ab-4303-b3fb-92f10a3190db.png)
 
 
 
@@ -241,7 +231,7 @@ Note that this only works when my Macbook is on my local network.
 **Required custom cards:**
 - [Bar Card](https://github.com/custom-cards/bar-card)
 - [Uptime Card](https://github.com/dylandoamaral/uptime-card)
-
+- [Stack In Card](https://github.com/custom-cards/stack-in-card)
 .
 
 
