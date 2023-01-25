@@ -5,6 +5,12 @@ A few people have been asking for the yaml config so here goes, along with some 
 
 **Theme**: [hass-kibibit-theme](https://github.com/Kibibit/hass-kibibit-theme)
 
+**Camera/Frigate card**: [frigate-hass-card](https://github.com/dermotduffy/frigate-hass-card)
+
+
+
+.
+# SCREENSHOTS:
 
 ## Desktop Dashboard:
 
@@ -26,7 +32,7 @@ A few people have been asking for the yaml config so here goes, along with some 
 .
 
 
-
+# CARD EXPLAINERS
 
 
 
