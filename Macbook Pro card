@@ -1,72 +1,145 @@
-type: vertical-stack
-cards:
-  - type: conditional
-    conditions:
-      - entity: sensor.macbook_pro_cpu_used
-        state_not: unavailable
-    card:
-      type: entities
-      entities:
-        - entity: sensor.macbook_pro_battery
-        - type: custom:slider-entity-row
-          entity: number.macbook_pro_volume
-          min: 0
-          max: 100
-        - entity: switch.macbook_pro_mute
-        - type: button
-          name: Macbook Pro Sleep
-          icon: mdi:power-sleep
-          tap_action:
-            action: call-service
-            service: script.macbook_pro_sleep
-          action_name: Sleep
-      title: Macbook Pro
-      icon: mdi:apple
-      show_header_toggle: false
-      state_color: false
-      footer:
-        type: custom:bar-card
-        entities:
-          - entity: sensor.macbook_pro_cpu_used
-          - entity: sensor.macbook_pro_ram_used_percent
-          - entity: sensor.macbook_pro_system_volumes_data_used_percent
-            severity:
-              - from: '0'
-                to: '50'
-                color: Green
-              - from: '51'
-                to: '75'
-                color: Orange
-              - from: '76'
-                to: '100'
-                color: Red
-          - entity: sensor.macbook_pro_volumes_media_used_percent
-            severity:
-              - from: '0'
-                to: '50'
-                color: Green
-              - from: '51'
-                to: '75'
-                color: Orange
-              - from: '76'
-                to: '100'
-                color: Red
-        title: null
-        direction: right
-        height: 28
-        positions:
-          icon: inside
-          indicator: 'off'
-          name: inside
-          minmax: 'off'
-          value: inside
-        severity:
-          - from: '80'
-            to: '100'
-            color: Red
-          - from: '70'
-            to: '79'
-            color: Orange
-          - from: '0'
-            to: '69'
-            color: Green
+type: conditional
+conditions:
+  - entity: binary_sensor.conors_macbook_pro_active
+    state: 'on'
+card:
+  type: custom:stack-in-card
+  keep:
+    outer_padding: true
+    border-radius: true
+    box_shadow: false
+    background: false
+    margin: false
+  cards:
+    - type: custom:mushroom-title-card
+      title: ' 💻   Macbook Pro'
+    - type: custom:stack-in-card
+      mode: vertical
+      cards:
+        - type: custom:stack-in-card
+          mode: horizontal
+          cards:
+            - type: custom:mushroom-entity-card
+              entity: sensor.conors_macbook_pro_internal_battery_level
+              use_entity_picture: true
+              layout: horizontal
+              name: Battery
+              icon_color: green
+              card_mod:
+                style: |
+                  ha-card:active {
+                      transform: scale(0.975);
+                      transition: 0s;
+                  }
+            - type: custom:mushroom-entity-card
+              entity: script.macbook_pro_sleep
+              use_entity_picture: true
+              layout: horizontal
+              name: Sleep
+              icon: mdi:power-sleep
+              tap_action:
+                action: call-service
+                service: script.macbook_pro_sleep
+              card_mod:
+                style: |
+                  ha-card:active {
+                      transform: scale(0.975);
+                      transition: 0s;
+                  }
+        - type: custom:stack-in-card
+          cards:
+            - type: custom:mushroom-template-card
+              entity: number.macbook_pro_volume
+              tap_action:
+                action: null
+              icon: >
+                {% set vol_level = states(entity) | float %}
+
+
+                {% if (vol_level == 0) or is_state('switch.macbook_pro_mute',
+                'on') %}
+                  mdi:volume-mute
+                {% elif vol_level > 50 %}
+                  mdi:volume-high
+                {% elif vol_level < 10 %}
+                  mdi:volume-low
+                {% else %}
+                  mdi:volume-medium
+                {% endif %}
+              badge_icon: ''
+              icon_color: |
+                {% if is_state("switch.macbook_pro_mute", "on") %}
+                  red
+                {% else %}
+                  green
+                {% endif %}
+              primary: Volume
+              secondary: |
+                {% set vol = states(entity) | float  %}
+                {{ vol | round | int }}%
+            - type: custom:my-slider
+              entity: number.macbook_pro_volume
+              radius: 12px
+              height: 20px
+              mainSliderColor: rgb(var(--mush-rgb-indigo))
+              secondarySliderColor: rgba(var(--mush-rgb-indigo), 0.2)
+              mainSliderColorOff: rgb(var(--mush-rgb-disabled))
+              secondarySliderColorOff: rgba(var(--mush-rgb-disabled), 0.2)
+              thumbHorizontalPadding: 0px
+              thumbVerticalPadding: 0px
+              thumbWidth: 0px
+              card_mod:
+                style: |
+                  ha-card {
+                    padding: 0px 11px 11px;
+                    --mush-rgb-disabled: 189,189,189;
+                    --mush-rgb-indigo: 63, 81, 181;
+                  }
+            - type: custom:mushroom-template-card
+              primary: ''
+              secondary: ''
+              icon: |
+                {% set vol_level = states(entity) | float %}
+                {% if vol_level == 0 %}
+                  mdi:volume-mute
+                {% elif vol_level > 50 %}
+                  mdi:volume-high
+                {% elif vol_level < 0.33 %}
+                  mdi:volume-low
+                {% else %}
+                  mdi:volume-medium
+                {% endif %}
+              badge_icon: ''
+              icon_color: |
+                {% if is_state("switch.macbook_pro_mute", "on") %}
+                  red
+                {% else %}
+                  green
+                {% endif %}
+              entity: switch.macbook_pro_mute
+              card_mod:
+                style: |-
+                  ha-card {
+                    margin-top: -97px;
+                    margin-left: 00px;
+
+                  }
+              title: null
+              direction: right
+              height: 25
+              positions:
+                icon: inside
+                indicator: 'off'
+                name: inside
+                minmax: 'off'
+                value: inside
+              severity:
+                - from: '80'
+                  to: '100'
+                  color: Red
+                - from: '70'
+                  to: '79'
+                  color: Orange
+                - from: '0'
+                  to: '69'
+                  color: Green
