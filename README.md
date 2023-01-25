@@ -5,7 +5,30 @@ A few people have been asking for the yaml config so here goes, along with some 
 
 **Theme**: [hass-kibibit-theme](https://github.com/Kibibit/hass-kibibit-theme)
 
-**Screenshots:** [Here](https://github.com/conorlap/Wilberforce-Home-Assistant-Dashboard#screenshots)
+
+## Desktop Dashboard:
+
+![1](https://user-images.githubusercontent.com/57415184/167597383-0dbfb352-4905-405b-8a5a-700638a78d69.jpg)
+![2](https://user-images.githubusercontent.com/57415184/167597404-33cbde7f-0331-4b96-9279-4b070365ae44.jpg)
+
+## Mobile Dashboard:
+![Screenshot 2023-01-25 at 15 37 38](https://user-images.githubusercontent.com/57415184/214606639-f8f8da64-ad8c-488d-a94f-0fc11366bfd7.png)
+![Screenshot 2023-01-25 at 15 38 38](https://user-images.githubusercontent.com/57415184/214606886-24091a47-784e-44c9-95d7-4fd47010fe9d.png)
+
+![Screenshot 2023-01-25 at 15 39 32](https://user-images.githubusercontent.com/57415184/214607101-d3e2cbb6-f4e4-4127-8d7d-e3dcfebd23aa.png)
+![Screenshot 2023-01-25 at 15 39 54](https://user-images.githubusercontent.com/57415184/214607198-5cf1187e-7603-46c4-a672-4da1de6ea289.png)
+
+
+
+
+.
+
+.
+
+
+
+
+
 
 
 
@@ -34,7 +57,6 @@ The list of commands you can publish are [here](https://www.denon.com/-/media/fi
 
 
 
-/
 
 
   **Required custom cards:**
@@ -46,11 +68,9 @@ The list of commands you can publish are [here](https://www.denon.com/-/media/fi
 
 
 
-/
+.
 
-/
 
-/
 
 
 
@@ -113,7 +133,6 @@ switch:
 
 
 
-/
 
 
 **Required custom cards:**
@@ -123,11 +142,9 @@ switch:
 - [Light Entity Card](https://github.com/ljmerza/light-entity-card)   
 
 
-/
+.
 
-/
 
-/
 
 
 
@@ -159,17 +176,13 @@ Note that this only works when my Macbook is on my local network.
 
 
 
-/
-
 **Required custom cards:**
 - [Lovelace Slider Entity Row](https://github.com/thomasloven/lovelace-slider-entity-row)
 - [Custom Bar-Card](https://github.com/custom-cards/bar-card)
 
-/
+.
 
-/
 
-/
 
 
 
@@ -202,18 +215,14 @@ Note that this only works when my Macbook is on my local network.
 
 
 
-/
 
 
 **Required custom cards:**
 - [Bar Card](https://github.com/custom-cards/bar-card)
 - [Uptime Card](https://github.com/dylandoamaral/uptime-card)
 
-/
+.
 
-/
-
-/
 
 
 
@@ -230,17 +239,12 @@ Note that this only works when my Macbook is on my local network.
 
 
 
-/
+
 
 **Required custom cards:**
 - [Mini Graph Card](https://github.com/kalkih/mini-graph-card)
 
 
-/
-
-/
-
-/
 
 
 
@@ -248,26 +252,3 @@ Note that this only works when my Macbook is on my local network.
 
 
 
-
-
-
-# SCREENSHOTS
-
-## Mobile Dashboard:
-![1(1)](https://user-images.githubusercontent.com/57415184/167597138-9232043c-8ef1-4024-aeb9-a6f498553a93.jpg)
-![2(1)](https://user-images.githubusercontent.com/57415184/167597150-1deec21e-e1a2-4efe-be5d-7f167c5f7092.jpg)
-![3](https://user-images.githubusercontent.com/57415184/167597155-a5fd96b7-0082-465d-a7e5-a7ab2f6f8333.png)
-![4(1)](https://user-images.githubusercontent.com/57415184/167597160-de68f0e5-47c9-4995-89fc-d6db556f9153.jpg)
-
-/
-
-/
-
-/
-
-/
-
-## Desktop Dashboard:
-
-![1](https://user-images.githubusercontent.com/57415184/167597383-0dbfb352-4905-405b-8a5a-700638a78d69.jpg)
-![2](https://user-images.githubusercontent.com/57415184/167597404-33cbde7f-0331-4b96-9279-4b070365ae44.jpg)
