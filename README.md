@@ -51,19 +51,23 @@ A few people have been asking for the yaml config so here goes, along with some 
 
 **Note:** The mobile 'Devices' card is the same config but with some bits taken out as I don't need that info on mobile view.
 
-![Screenshot 2022-05-10 at 12 08 50](https://user-images.githubusercontent.com/57415184/167615391-84246a91-1961-4329-91c4-713185a6b73e.png)
+![Screenshot 2022-05-10 at 12 08 50](https://user-images.githubusercontent.com/57415184/214660379-ece50d60-bfd6-4c00-9b29-828329a9c219.png)
+
 
 
 
  **A:** [How I control my Macbook Pro volume/mute](https://github.com/bessarabov/mac2mqtt) 
  
- ![Screenshot 2022-05-10 at 11 52 57](https://user-images.githubusercontent.com/57415184/167612725-e09e2902-6d01-4148-821e-b35e40d48672.png)
-
+![Screenshot 2022-05-10 at 11 46 24](https://user-images.githubusercontent.com/57415184/214662048-1bd277e7-386c-48dc-a3bb-33575c33a9fe.png)
 
  
  **B:** [How I added the Denon AVR 'Dynamic EQ' and subwoofer level controls](https://github.com/conorlap/Wilberforce-Home-Assistant-Dashboard/blob/main/Denon%20AVR)
  
-![Screenshot 2022-05-10 at 11 52 04](https://user-images.githubusercontent.com/57415184/167612587-61df8346-e615-4607-9937-bc21f004f486.png)
+![Screenshot 2022-05-10 at 11 52 04](https://user-images.githubusercontent.com/57415184/214663364-c4782fb4-093d-4d9c-b73a-d736460196c1.png)
+
+
+
+
 
 **Note:** You can control pretty much every single aspect of a Denon Receiver via its IP protocol and the Denon HA integration. 
 
@@ -91,9 +95,7 @@ The list of commands you can publish are [here](https://www.denon.com/-/media/fi
 
 ## 2. The ['All Rooms' (Lights and Scripts buttons) desktop card](https://github.com/conorlap/Wilberforce-Home-Assistant-Dashboard/blob/main/Lights%20and%20Scripts%20tab)  
 
-![Screenshot 2022-05-10 at 11 44 15](https://user-images.githubusercontent.com/57415184/167611308-3dce6069-6b20-40d8-a9dc-6572c34ed657.png)
-
-
+![Screenshot 2022-05-10 at 11 44 15](https://user-images.githubusercontent.com/57415184/214664750-74237b50-8043-4c86-ab01-e0a89c5ab7ca.png)
 
 
  **Note:** The buttons for 'Switch', 'Xbox', 'Plex' and 'Shield' all simply just call scripts that I've created that turn on my TV, surround sound and switch my TV & Receiver to the appropiate HDMI and turns the corresponding device on if supported. (The Nintendo Switch won't turn on this way as we cannot control it via HA). 
@@ -179,9 +181,13 @@ switch:
 
 
 
+
+
+
+
 **Note:** The battery % simply comes from the Home Assistant MacOS app, you can expose many sensors from this.
 
-**A:** [How I control my Macbook Pro volume/mute](https://github.com/bessarabov/mac2mqtt)
+**A:** [How I control my Macbook Pro/mute](https://github.com/bessarabov/mac2mqtt)
 
 **B:** [How I pull my Macbook Pro stats](https://www.home-assistant.io/integrations/glances/) and then once that is done,  install and configure glances on your Mac! 
 
