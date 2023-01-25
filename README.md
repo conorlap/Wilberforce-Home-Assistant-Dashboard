@@ -13,17 +13,26 @@ A few people have been asking for the yaml config so here goes, along with some 
 # SCREENSHOTS:
 
 ## Desktop Dashboard:
+
+**Main dashboard:**
 ![Screenshot 2023-01-25 at 18 34 08](https://user-images.githubusercontent.com/57415184/214653183-b5e4e29c-bae3-4352-9086-838cee3f4f82.png)
+
+**Server/Systems dashboard:**
 ![Screenshot 2023-01-25 at 18 25 58](https://user-images.githubusercontent.com/57415184/214653305-6b169411-3cc5-4bde-b73a-06ad47807569.png)
 
 
 
 ## Mobile Dashboard:
 
+**Main Mobile Dashboard:**
 
-![s](https://user-images.githubusercontent.com/57415184/214656644-f429a6c7-ac7a-4a52-b79b-11e269561322.png)
+
+![ha1](https://user-images.githubusercontent.com/57415184/214659523-14d6e2a9-ad9c-40c9-9006-5663850775ce.png)
+![c](https://user-images.githubusercontent.com/57415184/214658584-6af798ef-fae8-45e5-8fe1-0be861f86db8.png)
+
+**Server/Systems dasbboard:**
+
 ![s](https://user-images.githubusercontent.com/57415184/214656065-8b82d07a-30d4-496d-9cf6-5db412e394ab.png)
-
 ![f](https://user-images.githubusercontent.com/57415184/214656073-69600ae6-a586-4296-b27d-a73c9ad09c24.png)
 ![w](https://user-images.githubusercontent.com/57415184/214656099-92ac5285-9e4f-45b4-8dd6-a663a388f1b7.png)
 
