@@ -32,6 +32,8 @@ A few people have been asking for the yaml config so here goes, along with some 
 
 **Note**: The two indoor cameras are set to only come on when nobody is home, I've just manually switched them on for the screenshots. I like having my front door as the main focus when I first open the app as it's useful to quickly check when someone's at the door.
 
+.
+
 **Server/Systems dasbboard:**
 
 ![s](https://user-images.githubusercontent.com/57415184/214656065-8b82d07a-30d4-496d-9cf6-5db412e394ab.png)
